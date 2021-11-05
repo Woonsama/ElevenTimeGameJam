@@ -36,7 +36,11 @@ namespace Hotbar.UI.View.Result
             scoreText.transform.position = new Vector2(-Screen.width * 1.5f, gameOverInitialPos.y);
 
             replayButton.onClick?.RemoveAllListeners();
-            replayButton.onClick?.AddListener(replayAction);
+            replayButton.onClick?.AddListener(delegate
+            {
+                replayAction?.Invoke();
+                Close();
+            });
             replayButton.gameObject.SetActive(false);
 
             var tasks = new List<Task>();

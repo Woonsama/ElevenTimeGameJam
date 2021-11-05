@@ -39,7 +39,11 @@ namespace Hotbar.UI.View.Result
             nameInputField.gameObject.SetActive(false);
 
             replayButton.onClick?.RemoveAllListeners();
-            replayButton.onClick?.AddListener(delegate { replayAction?.Invoke(nameInputField.text); });
+            replayButton.onClick?.AddListener(delegate 
+            {
+                replayAction?.Invoke(nameInputField.text);
+                Close();
+            });
             replayButton.gameObject.SetActive(false);
 
             var tasks = new List<Task>();
