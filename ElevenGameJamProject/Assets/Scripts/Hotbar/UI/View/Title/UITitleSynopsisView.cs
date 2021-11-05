@@ -8,8 +8,6 @@ namespace Hotbar.UI.View.Title
 {
     public class UITitleSynopsisView : UIViewBase
     {
-        public Image backgroundImage;
-        public Text sysnopsisText;
         public Button skipButton;
 
         public override async Task InitView()
