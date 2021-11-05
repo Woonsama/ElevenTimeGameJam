@@ -7,7 +7,7 @@ public class ScrollMap : MonoBehaviour
     public SpriteRenderer Map_1, Map_2;
     public float Speed;    
 
-    public bool Scroll;
+    public bool Scroll = true;
 
     SpriteRenderer active_map, hide_map;
 
@@ -19,12 +19,15 @@ public class ScrollMap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        active_map.transform.Translate(Vector3.left * Speed * Time.deltaTime);
-        hide_map.transform.Translate(Vector3.left * Speed * Time.deltaTime);
-
-        if(hide_map.transform.localPosition.x <= 0f)
+        if(Scroll)
         {
-            SwitchMap();
+            active_map.transform.Translate(Vector3.left * Speed * Time.deltaTime);
+            hide_map.transform.Translate(Vector3.left * Speed * Time.deltaTime);
+
+            if (hide_map.transform.localPosition.x <= 0f)
+            {
+                SwitchMap();
+            }
         }
     }
 
