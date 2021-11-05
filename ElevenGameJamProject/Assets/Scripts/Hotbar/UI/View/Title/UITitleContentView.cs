@@ -43,20 +43,11 @@ namespace Hotbar.UI.View.Title
         
         private async void OnClickStartButton() => await TitleManager.Instance.uiTitleView.uiTitleSynopsisView.InitView();
 
-        private void OnClickRankingButton()
-        {
+        private async void OnClickRankingButton() => await TitleManager.Instance.uiTitleView.uiTitleRankingView.InitView();
 
-        }
+        private async void OnClickSettingButton() => await TitleManager.Instance.uiTitleView.uiTitleSettingView.InitView();
 
-        private void OnClickSettingButton()
-        {
-
-        }
-
-        private void OnClickCreditButton()
-        {
-
-        }
+        private async void OnClickCreditButton() => await TitleManager.Instance.uiTitleView.uiTitleCreditView.InitView();
 
         private void OnClickExitButton() => Application.Quit();
 
