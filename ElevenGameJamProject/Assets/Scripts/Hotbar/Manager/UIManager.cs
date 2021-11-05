@@ -13,7 +13,8 @@ namespace Hotbar.UI
 
         public enum ViewType
         {
-            Result,
+            ClearResult,
+            FailResult,
             Roulette,
         }
 

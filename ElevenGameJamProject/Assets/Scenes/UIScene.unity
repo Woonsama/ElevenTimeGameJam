@@ -479,13 +479,25 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6481267043569750930, guid: f51a24954e0a0b640b13e1096f73de4a, type: 3}
-      propertyPath: viewList.Array.data[0].value2
-      value: Prefabs/UI/UIResultFailView.prefab
+      propertyPath: viewList.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6481267043569750930, guid: f51a24954e0a0b640b13e1096f73de4a, type: 3}
+      propertyPath: viewList.Array.data[0].value2
+      value: 
+      objectReference: {fileID: 4846432655635547752, guid: 16d435724a5e9214ab3a946680c1b3b3, type: 3}
+    - target: {fileID: 6481267043569750930, guid: f51a24954e0a0b640b13e1096f73de4a, type: 3}
       propertyPath: viewList.Array.data[1].value2
-      value: Prefabs/UI/UIRouletteView.prefab
+      value: 
+      objectReference: {fileID: 4846432655635547752, guid: a5e9d6d62b6b9334cb6076c6074af971, type: 3}
+    - target: {fileID: 6481267043569750930, guid: f51a24954e0a0b640b13e1096f73de4a, type: 3}
+      propertyPath: viewList.Array.data[2].value1
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6481267043569750930, guid: f51a24954e0a0b640b13e1096f73de4a, type: 3}
+      propertyPath: viewList.Array.data[2].value2
+      value: 
+      objectReference: {fileID: 389776568289328955, guid: e088cf9c834b23f44a20183245184978, type: 3}
     - target: {fileID: 6481267043569750931, guid: f51a24954e0a0b640b13e1096f73de4a, type: 3}
       propertyPath: m_Name
       value: UIManager
