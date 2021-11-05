@@ -10,6 +10,7 @@ namespace Hotbar.UI.View.Result
 {
     public class UIResultFailView : UIViewBase
     {
+        public Image backgroundImage;
         public Image gameOverIcon;
         public Text scoreText;
         public Text contentsText;
@@ -18,38 +19,40 @@ namespace Hotbar.UI.View.Result
         Vector3 gameOverInitialPos;
         Vector3 scoreInitilPos;
 
-        public async Task InitView(UnityAction replayAction)
-        {
-            gameOverInitialPos = gameOverIcon.transform.localPosition;
-            gameOverIcon.transform.localPosition = new Vector2(Screen.width, gameOverInitialPos.y);
-
-            scoreInitilPos = scoreText.transform.localPosition;
-            scoreText.transform.localPosition = new Vector2(-Screen.width, gameOverInitialPos.y);
-
-            contentsText.color = new Color(contentsText.color.r, contentsText.color.g, contentsText.color.b, 0);
-
-            replayButton.onClick?.RemoveAllListeners();
-            replayButton.onClick?.AddListener(replayAction);
-            replayButton.enabled = false;
-        }
-
         /// <summary>
         /// 실패 결과창을 띄워줌
         /// </summary>
         /// <param name="replayAction">다시 시작 버튼 클릭 시 발생하는 이벤트</param>
         /// <returns></returns>
-        public async Task Show()
+        public async Task Show(UnityAction replayAction)
         {
+            await backgroundImage.DOFade(0, 0).AsyncWaitForCompletion();
+            await contentsText.DOFade(0, 0).AsyncWaitForCompletion();
+
+            gameOverInitialPos = gameOverIcon.transform.position;
+            gameOverIcon.transform.position = new Vector2(Screen.width * 1.5f, gameOverInitialPos.y);
+
+            scoreInitilPos = scoreText.transform.position;
+            scoreText.transform.position = new Vector2(-Screen.width * 1.5f, gameOverInitialPos.y);
+
+            replayButton.onClick?.RemoveAllListeners();
+            replayButton.onClick?.AddListener(replayAction);
+            replayButton.gameObject.SetActive(false);
+
             var tasks = new List<Task>();
-            tasks.Add(gameOverIcon.transform.DOMove(gameOverInitialPos, 0.7f).AsyncWaitForCompletion());
-            tasks.Add(scoreText.transform.DOMove(scoreInitilPos, 0.7f).AsyncWaitForCompletion());
+            tasks.Add(backgroundImage.DOFade(0.5f, 1.0f).AsyncWaitForCompletion());
             await Task.WhenAll(tasks);
             tasks.Clear();
 
-            tasks.Add(contentsText.DOFade(1, 0.7f).AsyncWaitForCompletion());
+            tasks.Add(gameOverIcon.transform.DOMove(gameOverInitialPos, 1.2f).AsyncWaitForCompletion());
+            tasks.Add(scoreText.transform.DOMove(scoreInitilPos, 1.2f).AsyncWaitForCompletion());
+            await Task.WhenAll(tasks);
+            tasks.Clear();
+
+            tasks.Add(contentsText.DOFade(1, 1.2f).AsyncWaitForCompletion());
             await Task.WhenAll(tasks);
 
-            replayButton.enabled = true;
+            replayButton.gameObject.SetActive(true);
         }
     }
 }

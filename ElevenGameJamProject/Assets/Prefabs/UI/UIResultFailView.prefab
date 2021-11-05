@@ -234,6 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0deda685034731f4789c9cd0d805804e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backgroundImage: {fileID: 4846432656672446015}
   gameOverIcon: {fileID: 4846432655747264184}
   scoreText: {fileID: 4846432656625961554}
   contentsText: {fileID: 4846432656421748348}
