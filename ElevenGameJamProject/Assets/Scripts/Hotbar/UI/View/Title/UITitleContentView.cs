@@ -16,6 +16,31 @@ namespace Hotbar.UI.View.Title
         public Button creditButton;
         public Button exitButton;
 
+        private float tick;
+
+        private void Update()
+        {
+            tick -= Time.deltaTime;
+
+            if (tick < 0)
+            {
+                tick = 4.0f;
+                titleIcon.transform.DOPunchScale(new Vector3(0.1f, 0.1f, 0.0f), 1.0f, 5);
+
+            }
+        }
+
+        private void OnEnable()
+        {
+            tick = 1.0f;
+            titleIcon.transform.localScale = new Vector3(0.75f, 0.75f, 1.0f);
+        }
+
+        private void OnDisable()
+        {
+            titleIcon.DOKill();
+        }
+
         public override async Task InitView()
         {
             startButton.onClick?.RemoveAllListeners();

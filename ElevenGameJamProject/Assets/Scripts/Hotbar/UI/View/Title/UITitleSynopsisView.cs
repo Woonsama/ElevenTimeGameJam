@@ -10,6 +10,7 @@ namespace Hotbar.UI.View.Title
     public class UITitleSynopsisView : UIViewBase
     {
         public Text sysnopsisText;
+        public Transform cloudImage;
         public Button skipButton;
 
         public override async Task InitView()
