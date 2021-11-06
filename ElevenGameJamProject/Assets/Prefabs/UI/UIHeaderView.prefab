@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54675849092aedd4a8c867df89ec19a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  remainPlayTimeText: {fileID: 0}
+  remainPlayTimeText: {fileID: 8262004868149447504}
   scoreText: {fileID: 6208022917956310908}
   settingButton: {fileID: 7256573611206358892}
 --- !u!1 &479623278003050692
