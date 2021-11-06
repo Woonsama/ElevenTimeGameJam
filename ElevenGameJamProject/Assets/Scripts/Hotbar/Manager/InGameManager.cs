@@ -32,7 +32,7 @@ public class InGameManager : SingletonMonoBase<InGameManager>
                 BackgroundController.Instance.groundMapManager.TunaCount = 5;
 
                 BackgroundController.Instance.groundMapManager.ObstacleBananaCount = 5;
-                BackgroundController.Instance.groundMapManager.ObstacleSealionCount = 5;
+                BackgroundController.Instance.groundMapManager.ObstacleSealionCount = 4;
                 BackgroundController.Instance.groundMapManager.ObstaclePuddle1Count = 1;
                 BackgroundController.Instance.groundMapManager.ObstaclePuddle2Count = 0;
                 BackgroundController.Instance.groundMapManager.ObstaclePuddle3Count = 0;
@@ -43,7 +43,7 @@ public class InGameManager : SingletonMonoBase<InGameManager>
                 BackgroundController.Instance.groundMapManager.TunaCount = 3;
 
                 BackgroundController.Instance.groundMapManager.ObstacleBananaCount = 3;
-                BackgroundController.Instance.groundMapManager.ObstacleSealionCount = 3;
+                BackgroundController.Instance.groundMapManager.ObstacleSealionCount = 2;
                 BackgroundController.Instance.groundMapManager.ObstaclePuddle1Count = 0;
                 BackgroundController.Instance.groundMapManager.ObstaclePuddle2Count = 0;
                 BackgroundController.Instance.groundMapManager.ObstaclePuddle3Count = 0;
@@ -54,7 +54,7 @@ public class InGameManager : SingletonMonoBase<InGameManager>
                 BackgroundController.Instance.groundMapManager.TunaCount = 4;
 
                 BackgroundController.Instance.groundMapManager.ObstacleBananaCount = 4;
-                BackgroundController.Instance.groundMapManager.ObstacleSealionCount = 4;
+                BackgroundController.Instance.groundMapManager.ObstacleSealionCount = 3;
                 BackgroundController.Instance.groundMapManager.ObstaclePuddle1Count = 0;
                 BackgroundController.Instance.groundMapManager.ObstaclePuddle2Count = 0;
                 BackgroundController.Instance.groundMapManager.ObstaclePuddle3Count = 0;
