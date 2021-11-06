@@ -9,12 +9,29 @@ using Tang3.Common.Management;
 using UnityEngine;
 using eleven.game;
 using UnityEngine.SceneManagement;
+using System;
+
+[Serializable]
+public struct LevelInfo
+{
+    public int squidCount;
+    public int tunaCount;
+
+    public int obstacleBananaCount;
+    public int obstacleSealionCount;
+    public int obstaclePuddle1Count;
+    public int obstaclePuddle2Count;
+    public int obstaclePuddle3Count;
+}
 
 public class InGameManager : SingletonMonoBase<InGameManager>
 {
     public UIHeaderView uiHeaderView;
 
     int score = 0;
+
+    [SerializeField]
+    LevelInfo hard, normal, lucky;
 
     private async void Awake()
     {
@@ -28,36 +45,36 @@ public class InGameManager : SingletonMonoBase<InGameManager>
         switch (mode)
         {
             case Hotbar.Enum.RouletteType.Hard:
-                BackgroundController.Instance.groundMapManager.SquidCount = 5;
-                BackgroundController.Instance.groundMapManager.TunaCount = 5;
+                BackgroundController.Instance.groundMapManager.SquidCount = hard.squidCount;
+                BackgroundController.Instance.groundMapManager.TunaCount = hard.tunaCount;
 
-                BackgroundController.Instance.groundMapManager.ObstacleBananaCount = 5;
-                BackgroundController.Instance.groundMapManager.ObstacleSealionCount = 4;
-                BackgroundController.Instance.groundMapManager.ObstaclePuddle1Count = 1;
-                BackgroundController.Instance.groundMapManager.ObstaclePuddle2Count = 0;
-                BackgroundController.Instance.groundMapManager.ObstaclePuddle3Count = 0;
+                BackgroundController.Instance.groundMapManager.ObstacleBananaCount = hard.obstacleBananaCount;
+                BackgroundController.Instance.groundMapManager.ObstacleSealionCount = hard.obstacleSealionCount;
+                BackgroundController.Instance.groundMapManager.ObstaclePuddle1Count = hard.obstaclePuddle1Count;
+                BackgroundController.Instance.groundMapManager.ObstaclePuddle2Count = hard.obstaclePuddle2Count;
+                BackgroundController.Instance.groundMapManager.ObstaclePuddle3Count = hard.obstaclePuddle3Count;
 
                 break;
             case Hotbar.Enum.RouletteType.Lucky:
-                BackgroundController.Instance.groundMapManager.SquidCount = 3;
-                BackgroundController.Instance.groundMapManager.TunaCount = 3;
+                BackgroundController.Instance.groundMapManager.SquidCount = lucky.squidCount;
+                BackgroundController.Instance.groundMapManager.TunaCount = lucky.tunaCount;
 
-                BackgroundController.Instance.groundMapManager.ObstacleBananaCount = 3;
-                BackgroundController.Instance.groundMapManager.ObstacleSealionCount = 2;
-                BackgroundController.Instance.groundMapManager.ObstaclePuddle1Count = 0;
-                BackgroundController.Instance.groundMapManager.ObstaclePuddle2Count = 0;
-                BackgroundController.Instance.groundMapManager.ObstaclePuddle3Count = 0;
+                BackgroundController.Instance.groundMapManager.ObstacleBananaCount = lucky.obstacleBananaCount;
+                BackgroundController.Instance.groundMapManager.ObstacleSealionCount = lucky.obstacleSealionCount;
+                BackgroundController.Instance.groundMapManager.ObstaclePuddle1Count = lucky.obstaclePuddle1Count;
+                BackgroundController.Instance.groundMapManager.ObstaclePuddle2Count = lucky.obstaclePuddle2Count;
+                BackgroundController.Instance.groundMapManager.ObstaclePuddle3Count = lucky.obstaclePuddle3Count;
 
                 break;
             case Hotbar.Enum.RouletteType.Normal:
-                BackgroundController.Instance.groundMapManager.SquidCount = 4;
-                BackgroundController.Instance.groundMapManager.TunaCount = 4;
+                BackgroundController.Instance.groundMapManager.SquidCount = normal.squidCount;
+                BackgroundController.Instance.groundMapManager.TunaCount = normal.tunaCount;
 
-                BackgroundController.Instance.groundMapManager.ObstacleBananaCount = 4;
-                BackgroundController.Instance.groundMapManager.ObstacleSealionCount = 3;
-                BackgroundController.Instance.groundMapManager.ObstaclePuddle1Count = 0;
-                BackgroundController.Instance.groundMapManager.ObstaclePuddle2Count = 0;
-                BackgroundController.Instance.groundMapManager.ObstaclePuddle3Count = 0;
+                BackgroundController.Instance.groundMapManager.ObstacleBananaCount = normal.obstacleBananaCount;
+                BackgroundController.Instance.groundMapManager.ObstacleSealionCount = normal.obstacleSealionCount;
+                BackgroundController.Instance.groundMapManager.ObstaclePuddle1Count = normal.obstaclePuddle1Count;
+                BackgroundController.Instance.groundMapManager.ObstaclePuddle2Count = normal.obstaclePuddle2Count;
+                BackgroundController.Instance.groundMapManager.ObstaclePuddle3Count = normal.obstaclePuddle3Count;
 
                 break;
             default:
