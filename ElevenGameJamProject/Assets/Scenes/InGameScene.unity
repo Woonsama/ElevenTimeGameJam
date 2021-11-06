@@ -411,6 +411,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 216190748}
+  - component: {fileID: 216190749}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -437,6 +438,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &216190749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216190747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa47ffd45fb5ba40a4f9463231cca4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cloud: {fileID: 473496987}
+  mountain: {fileID: 1976121998}
+  ice: {fileID: 766309082}
+  gridScroller: {fileID: 1944714634}
+  groundMapManager: {fileID: 1944714633}
 --- !u!1 &413098573
 GameObject:
   m_ObjectHideFlags: 0

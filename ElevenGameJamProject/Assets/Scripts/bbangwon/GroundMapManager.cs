@@ -68,11 +68,10 @@ namespace eleven.game
 
         public GameObject Penguin, DeadZone;
 
-        private void Start()
+        private void Awake()
         {
             tileMap = GetComponentInChildren<Tilemap>();
-            Init();
-        }         
+        }
 
         public void Init()
         {
