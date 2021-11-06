@@ -1261,8 +1261,8 @@ MonoBehaviour:
     Min: -2
     Max: 2
   drawXPossibleCount:
-    Min: 15
-    Max: 20
+    Min: 20
+    Max: 25
   ItemSquid: {fileID: 1619638093504996450, guid: 0441931e62e34a94d87e2cdcd0f08ca7, type: 3}
   ItemTuna: {fileID: 8932968688535452570, guid: f2af542d2565b374b8dd524bc991a1bf, type: 3}
   SquidCount: 10
