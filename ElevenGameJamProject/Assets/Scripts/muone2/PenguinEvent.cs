@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class PenguinEvent : MonoBehaviour
 {
-    public int score;
     public Animator PenguinAnimator;
     bool isDead = false;
     bool isComplete = false;
@@ -13,7 +12,6 @@ public class PenguinEvent : MonoBehaviour
     private void Start()
     {
         PenguinAnimator = GetComponent<Animator>();
-        InGameManager.Instance.SetScore(0);
     }
     void OnEnable()
     {
@@ -29,8 +27,8 @@ public class PenguinEvent : MonoBehaviour
         {
             Item item = collision.GetComponent<Item>();
 
-            score = score + item?.Score ?? 0;
-            InGameManager.Instance.SetScore(score);
+            int score = item?.Score ?? 0;
+            InGameManager.Instance.AddScore(score);
 
             collision.gameObject.SetActive(false);
 
@@ -50,7 +48,6 @@ public class PenguinEvent : MonoBehaviour
         {
             PenguinAnimator.SetBool("isGoal", true);   //실제론 메니저에서 엔딩을 온하는 함수를 받아와야 함. 게임의 다른 것들도 멈춰야함.
             Debug.Log("Good Ending on");
-            Debug.Log("your score is" + score);
             Muone2SoundManager.instance.soundGoalHomeOffOn();
             isComplete = true;
 

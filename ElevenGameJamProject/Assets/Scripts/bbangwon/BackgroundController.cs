@@ -19,9 +19,8 @@ namespace eleven.game
 
         [SerializeField]
         ScrollMap gridScroller;
-
-        [SerializeField]
-        GroundMapManager groundMapManager;
+                
+        public GroundMapManager groundMapManager;
 
         private void Awake()
         {

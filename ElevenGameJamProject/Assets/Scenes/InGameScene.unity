@@ -1619,9 +1619,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 33f41525c99276940a8b25ceb78ef84f, type: 2}
   - {fileID: 11400000, guid: ddd6bbd287c8b28458cde654b56503a1, type: 2}
   beginGroundCount:
-    Min: 12
-    Max: 20
-  MaxDrawBound: {x: 200, y: 4}
+    Min: 7
+    Max: 12
+  MaxDrawBound: {x: 70, y: 4}
   holeXPossibleCount:
     Min: 1
     Max: 3
@@ -1629,16 +1629,15 @@ MonoBehaviour:
     Min: -2
     Max: 2
   drawXPossibleCount:
-    Min: 20
-    Max: 25
+    Min: 7
+    Max: 12
   ItemSquid: {fileID: 1619638093504996450, guid: 0441931e62e34a94d87e2cdcd0f08ca7, type: 3}
   ItemTuna: {fileID: 8932968688535452570, guid: f2af542d2565b374b8dd524bc991a1bf, type: 3}
-  SquidCount: 10
-  TunaCount: 10
+  SquidCount: 5
+  TunaCount: 5
   possibleItemYPos:
     Min: 1
     Max: 3
-  ObstaclePrefab: []
   possibleItemBatchStart: 15
   objectTransform: {fileID: 1563683782}
   ObstacleBanana: {fileID: 5645498766660484559, guid: 9b9d72691791b5442b1f42ec18166997, type: 3}
@@ -1646,13 +1645,15 @@ MonoBehaviour:
   ObstaclePuddle1: {fileID: 1419719664203290500, guid: 306e3d89c02ee7a4bb74c32a968b4bcd, type: 3}
   ObstaclePuddle2: {fileID: 2303046879121867107, guid: 5ca6e9f17fc34854d8744305ad2b17cf, type: 3}
   ObstaclePuddle3: {fileID: 956061101593320164, guid: d7f08651e9342eb47943fe433ed29673, type: 3}
-  ObstacleBananaCount: 10
-  ObstacleSealionCount: 10
-  ObstaclePuddle1Count: 2
-  ObstaclePuddle2Count: 2
-  ObstaclePuddle3Count: 2
+  ObstacleBananaCount: 5
+  ObstacleSealionCount: 5
+  ObstaclePuddle1Count: 0
+  ObstaclePuddle2Count: 0
+  ObstaclePuddle3Count: 0
   Penguin: {fileID: 7312248871536219140, guid: 1c848f3849ce5a84889a971d9a01f709, type: 3}
   DeadZone: {fileID: 3675776956872710469, guid: 7692474c60bc42f4a91de7d87de93fe2, type: 3}
+  home: {fileID: 1638066388211637311, guid: 97fad9fb9117a6247860927f95380d98, type: 3}
+  homeDrawIndex: 50
 --- !u!114 &1944714634
 MonoBehaviour:
   m_ObjectHideFlags: 0
