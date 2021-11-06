@@ -23,7 +23,16 @@ namespace Hotbar.UI.View
 
         public void RefreshRemainPlayTime() => remainPlayTimeText.text = string.Format("{0}", TimeManager.Instance.currentTime.ToString("n2"));
 
-        public void SetScore(int score) => scoreText.text = string.Format("{0}", score);
+        public void SetScore(int score)
+        {
+            int preScore = int.Parse(scoreText.text);
+            scoreText.text = string.Format("{0}", score);
+
+            if (preScore < score)
+            {                
+                StartScoreUpEffect();
+            }
+        }
 
         public void StartScoreUpEffect()
         {
