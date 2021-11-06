@@ -24,7 +24,7 @@ namespace Hotbar.UI.View.Title
 
             if (tick < 0)
             {
-                tick = 4.0f;
+                tick = 3.0f;
                 titleIcon.transform.DOPunchScale(new Vector3(0.1f, 0.1f, 0.0f), 1.0f, 5);
 
             }
