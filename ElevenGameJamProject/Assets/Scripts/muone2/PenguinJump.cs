@@ -25,7 +25,20 @@ public class PenguinJump : MonoBehaviour
             rigid.velocity = new Vector2(rigid.velocity.x, Vector2.up.y * jumpPower);
             JumpCount++;
             Debug.Log(JumpCount);
+            Muone2SoundManager.instance.soundJumpOffOn();
         }
+        else if (Input.touchCount > 0) 
+        {
+            Touch touch = Input.GetTouch(0);
+            if(touch.phase == TouchPhase.Began)
+            {
+                rigid.velocity = new Vector2(rigid.velocity.x, Vector2.up.y * jumpPower);
+                JumpCount++;
+                Debug.Log(JumpCount);
+                Muone2SoundManager.instance.soundJumpOffOn();
+            }
+        }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
