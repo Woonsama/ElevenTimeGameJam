@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Obstacle
+  - Ground
+  - Item
+  - Home
+  - DeadZone
   layers:
   - Default
   - TransparentFX
@@ -40,4 +45,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: background
+    uniqueID: 3805454445
+    locked: 0
+  - name: Ground
+    uniqueID: 786033241
+    locked: 0
+  - name: Object
+    uniqueID: 1656889229
+    locked: 0
+  - name: Player
+    uniqueID: 2849656315
     locked: 0
