@@ -62,9 +62,9 @@ namespace eleven.game
         Transform objectTransform;
 
         [SerializeField]
-        GameObject ObstacleBanana, ObstacleSealion;
+        GameObject ObstacleBanana, ObstacleSealion, ObstaclePuddle1, ObstaclePuddle2, ObstaclePuddle3;
 
-        public int ObstacleBananaCount, ObstacleSealionCount;
+        public int ObstacleBananaCount, ObstacleSealionCount, ObstaclePuddle1Count, ObstaclePuddle2Count, ObstaclePuddle3Count;
 
         
 
@@ -151,14 +151,11 @@ namespace eleven.game
                     squid.name = $"squid_{xPos}_{yPos}";
                     squid.transform.localPosition = tileMap.GetCellCenterLocal(new Vector3Int(xPos, yPos, 0));
                 }
-                else
+                else if (tunaCount-- > 0)
                 {
-                    if (tunaCount-- > 0)
-                    {
-                        GameObject tuna = Instantiate(ItemTuna, objectTransform);
-                        tuna.name = $"tuna_{xPos}_{yPos}";
-                        tuna.transform.localPosition = tileMap.GetCellCenterLocal(new Vector3Int(xPos, yPos, 0));
-                    }
+                    GameObject tuna = Instantiate(ItemTuna, objectTransform);
+                    tuna.name = $"tuna_{xPos}_{yPos}";
+                    tuna.transform.localPosition = tileMap.GetCellCenterLocal(new Vector3Int(xPos, yPos, 0));
                 }
             }
         }
@@ -169,15 +166,16 @@ namespace eleven.game
             int sealionCount = ObstacleSealionCount;
             //땅 위.. 또는 점프로 획득 가능한 곳에 배치
             //일단 배치할 X 좌표를 구함
-            int[] xPoses = Enumerable.Range(possibleItemBatchStart, tileHeight.Count - possibleItemBatchStart)
-                                        .OrderBy(v => UnityEngine.Random.value).Take(bananaCount + sealionCount).ToArray();
+            int[] xPoses = Enumerable.Range(possibleItemBatchStart, tileHeight.Count - possibleItemBatchStart)                                        
+                                        .OrderBy(v => UnityEngine.Random.value)
+                                        .Take(bananaCount + sealionCount + 
+                                        ObstaclePuddle1Count + ObstaclePuddle2Count + ObstaclePuddle3Count)
+                                        .ToArray();
 
             for (int x = 0; x < xPoses.Length; x++)
             {
-
-
                 int xPos = xPoses[x];
-                int yPos = tileHeight[xPos] + 1;
+                int yPos = tileHeight[xPos];
                 yPos = Mathf.Clamp(yPos, 0, 6);
 
                 Debug.Log($"{xPos} {tileHeight[xPos]} {tileMap.GetCellCenterLocal(new Vector3Int(xPos, yPos, 0))}");
@@ -186,13 +184,31 @@ namespace eleven.game
                 {
                     GameObject banana = Instantiate(ObstacleBanana, objectTransform);
                     banana.name = $"banana_{xPos}_{yPos}";
-                    banana.transform.localPosition = tileMap.GetCellCenterLocal(new Vector3Int(xPos, yPos, 0));
+                    banana.transform.localPosition = tileMap.GetCellCenterLocal(new Vector3Int(xPos, yPos+1, 0));
                 }
                 else if (sealionCount-- > 0)
                 {
                     GameObject sealion = Instantiate(ObstacleSealion, objectTransform);
                     sealion.name = $"sealion_{xPos}_{yPos}";
-                    sealion.transform.localPosition = tileMap.GetCellCenterLocal(new Vector3Int(xPos, yPos, 0));
+                    sealion.transform.localPosition = tileMap.GetCellCenterLocal(new Vector3Int(xPos, yPos+1, 0));
+                }
+                else if(ObstaclePuddle1Count-- > 0)
+                {
+                    GameObject puddle = Instantiate(ObstaclePuddle1, objectTransform);
+                    puddle.name = $"puddle1_{xPos}_{yPos}";
+                    puddle.transform.localPosition = tileMap.GetCellCenterLocal(new Vector3Int(xPos, yPos, 0));
+                }
+                else if (ObstaclePuddle2Count-- > 0)
+                {
+                    GameObject puddle = Instantiate(ObstaclePuddle2, objectTransform);
+                    puddle.name = $"puddle2_{xPos}_{yPos}";
+                    puddle.transform.localPosition = tileMap.GetCellCenterLocal(new Vector3Int(xPos, yPos, 0));
+                }
+                else if (ObstaclePuddle3Count-- > 0)
+                {
+                    GameObject puddle = Instantiate(ObstaclePuddle3, objectTransform);
+                    puddle.name = $"puddle3_{xPos}_{yPos}";
+                    puddle.transform.localPosition = tileMap.GetCellCenterLocal(new Vector3Int(xPos, yPos, 0));
                 }
             }
         }

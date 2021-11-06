@@ -1253,7 +1253,7 @@ MonoBehaviour:
   beginGroundCount:
     Min: 12
     Max: 20
-  MaxDrawBound: {x: 200, y: 6}
+  MaxDrawBound: {x: 200, y: 4}
   holeXPossibleCount:
     Min: 1
     Max: 3
@@ -1261,8 +1261,8 @@ MonoBehaviour:
     Min: -2
     Max: 2
   drawXPossibleCount:
-    Min: 10
-    Max: 15
+    Min: 15
+    Max: 20
   ItemSquid: {fileID: 1619638093504996450, guid: 0441931e62e34a94d87e2cdcd0f08ca7, type: 3}
   ItemTuna: {fileID: 8932968688535452570, guid: f2af542d2565b374b8dd524bc991a1bf, type: 3}
   SquidCount: 10
@@ -1275,8 +1275,14 @@ MonoBehaviour:
   objectTransform: {fileID: 723778370}
   ObstacleBanana: {fileID: 5645498766660484559, guid: 9b9d72691791b5442b1f42ec18166997, type: 3}
   ObstacleSealion: {fileID: 4407393023820611546, guid: 31966317d92fd70449d4f1e97ef9b610, type: 3}
+  ObstaclePuddle1: {fileID: 1419719664203290500, guid: 306e3d89c02ee7a4bb74c32a968b4bcd, type: 3}
+  ObstaclePuddle2: {fileID: 2303046879121867107, guid: 5ca6e9f17fc34854d8744305ad2b17cf, type: 3}
+  ObstaclePuddle3: {fileID: 956061101593320164, guid: d7f08651e9342eb47943fe433ed29673, type: 3}
   ObstacleBananaCount: 10
   ObstacleSealionCount: 10
+  ObstaclePuddle1Count: 2
+  ObstaclePuddle2Count: 2
+  ObstaclePuddle3Count: 2
 --- !u!1 &1607962344
 GameObject:
   m_ObjectHideFlags: 0
