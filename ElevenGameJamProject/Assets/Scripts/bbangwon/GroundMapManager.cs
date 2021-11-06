@@ -142,9 +142,6 @@ namespace eleven.game
                 int yPos = tileHeight[xPos] + possibleItemYPos.GetRandomOne();
                 yPos = Mathf.Clamp(yPos, 0, 6);
 
-                Debug.Log($"{xPos} {tileHeight[xPos]} {tileMap.GetCellCenterLocal(new Vector3Int(xPos, yPos, 0))}");
-
-
 
                 if (squidCount-- > 0)
                 {
@@ -183,8 +180,6 @@ namespace eleven.game
                 int xPos = xPoses[x];
                 int yPos = tileHeight[xPos];
                 yPos = Mathf.Clamp(yPos, 0, 6);
-
-                Debug.Log($"{xPos} {tileHeight[xPos]} {tileMap.GetCellCenterLocal(new Vector3Int(xPos, yPos, 0))}");
 
                 if (bananaCount-- > 0)
                 {
