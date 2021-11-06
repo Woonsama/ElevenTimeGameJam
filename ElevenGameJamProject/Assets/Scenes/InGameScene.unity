@@ -1021,7 +1021,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2510294693383775334, guid: 22412de4c48cb1d4fae854eaf1f4e41a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 126.875
       objectReference: {fileID: 0}
     - target: {fileID: 2510294693383775334, guid: 22412de4c48cb1d4fae854eaf1f4e41a, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1619,8 +1619,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 33f41525c99276940a8b25ceb78ef84f, type: 2}
   - {fileID: 11400000, guid: ddd6bbd287c8b28458cde654b56503a1, type: 2}
   beginGroundCount:
-    Min: 8
-    Max: 15
+    Min: 7
+    Max: 12
   MaxDrawBound: {x: 70, y: 4}
   holeXPossibleCount:
     Min: 1
@@ -1629,8 +1629,8 @@ MonoBehaviour:
     Min: -2
     Max: 2
   drawXPossibleCount:
-    Min: 10
-    Max: 15
+    Min: 7
+    Max: 12
   ItemSquid: {fileID: 1619638093504996450, guid: 0441931e62e34a94d87e2cdcd0f08ca7, type: 3}
   ItemTuna: {fileID: 8932968688535452570, guid: f2af542d2565b374b8dd524bc991a1bf, type: 3}
   SquidCount: 5
