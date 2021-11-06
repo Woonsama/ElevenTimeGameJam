@@ -18,6 +18,9 @@ namespace Hotbar.UI.View.Title
         {
             cloudImage.position += Vector3.left * Time.deltaTime * 10;
             sysnopsisText.transform.position += Vector3.up * Time.deltaTime * 25;
+
+            if (sysnopsisText.transform.position.y > 666.0f)
+                OnClickSkipButton();
         }
 
         public override async Task InitView()
@@ -35,7 +38,6 @@ namespace Hotbar.UI.View.Title
 
         private void OnClickSkipButton()
         {
-            Debug.Log("T");
             SceneManager.LoadScene(1);
         }
     }
