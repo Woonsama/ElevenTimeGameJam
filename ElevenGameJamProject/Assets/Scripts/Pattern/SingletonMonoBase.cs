@@ -5,50 +5,31 @@ using UnityEngine;
 
 namespace Tang3.Common.Management
 {
-    public class SingletonMonoBase<T> : MonoBehaviour where T: MonoBehaviour
+    public class SingletonMonoBase<T> : MonoBehaviour where T : Component
     {
-        private static bool shuttingDown = false;
-        private static object @lock = new object();
-        private static T instance;
-
+        private static T _instance;
         public static T Instance
         {
             get
             {
-                if (shuttingDown)
+                if (_instance == null)
                 {
-                    Debug.LogWarning("[Singleton] Instance '" + typeof(T) + "' already destroyed. Returning null.");
-                    return null;
-                }
-
-                lock (@lock)
-                {
-                    if (instance == null)
+                    var objs = FindObjectsOfType(typeof(T)) as T[];
+                    if (objs.Length > 0)
+                        _instance = objs[0];
+                    if (objs.Length > 1)
                     {
-                        instance = (T)FindObjectOfType(typeof(T));
-
-                        if (instance == null)
-                        {
-                            var singletonObject = new GameObject();
-                            instance = singletonObject.AddComponent<T>();
-                            singletonObject.name = typeof(T).ToString() + " (Singleton)";
-                            DontDestroyOnLoad(singletonObject);
-                        }
+                        Debug.LogError("There is more than one " + typeof(T).Name + " in the scene.");
                     }
-                    return instance;
+                    if (_instance == null)
+                    {
+                        GameObject obj = new GameObject();
+                        obj.hideFlags = HideFlags.HideAndDontSave;
+                        _instance = obj.AddComponent<T>();
+                    }
                 }
+                return _instance;
             }
-        }
-
-        private void OnApplicationQuit()
-        {
-            shuttingDown = true;
-        }
-
-
-        private void OnDestroy()
-        {
-            shuttingDown = true;
         }
     }
 }
