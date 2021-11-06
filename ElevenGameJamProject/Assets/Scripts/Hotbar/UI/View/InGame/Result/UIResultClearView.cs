@@ -26,7 +26,7 @@ namespace Hotbar.UI.View.Result
         /// </summary>
         /// <param name="replayAction">다시 시작 버튼 클릭 시 발생하는 이벤트</param>
         /// <returns></returns>
-        public async Task Show(int score, UnityAction<string> replayAction, UnityAction backAction)
+        public async Task Show(int score, UnityAction<string> replayAction, UnityAction<string> backAction)
         {
             scoreText.text = $"Score : {score}";
 
@@ -39,7 +39,8 @@ namespace Hotbar.UI.View.Result
 
             backButton.onClick?.AddListener(delegate
             {
-                backAction?.Invoke();
+                SavePlayerInfo(score);
+                backAction?.Invoke(nameInputField.text);
                 Close();
             });
 
@@ -86,6 +87,7 @@ namespace Hotbar.UI.View.Result
             var playerNameInfoList = new List<string>();
             for(int i = 0; i < playerNameInfoArray.Length; i++)
             {
+                Debug.Log(playerNameInfoArray[i]);
                 playerNameInfoList.Add(playerNameInfoArray[i]);
             }
 
@@ -105,6 +107,7 @@ namespace Hotbar.UI.View.Result
             var playerScoreInfoList = new List<int>();
             for (int i = 0; i < playerScoreInfoArray.Length; i++)
             {
+                Debug.Log(playerScoreInfoArray[i]);
                 playerScoreInfoList.Add(playerScoreInfoArray[i]);
             }
 
