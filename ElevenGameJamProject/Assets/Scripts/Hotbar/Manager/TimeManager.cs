@@ -13,10 +13,10 @@ public class TimeManager : SingletonMonoBase<TimeManager>
 
     public void StartTimer(float second, UnityAction timerEndAction = null)
     {
-        MeasureBySecond(second);
-        //MeasureByMilliSecond(second);
+        //MeasureBySecond(second, timerEndAction);
+        MeasureByMilliSecond(second, timerEndAction);
     }
-    
+
     public async void MeasureBySecond(float second, UnityAction timerEndAction = null)
     {
         currentTime = second;
@@ -30,7 +30,6 @@ public class TimeManager : SingletonMonoBase<TimeManager>
 
         currentTime = 0;
         IsEndTimer = true;
-
         timerEndAction?.Invoke();
     }
 
@@ -39,9 +38,10 @@ public class TimeManager : SingletonMonoBase<TimeManager>
         currentTime = second;
         IsEndTimer = false;
 
-        while (currentTime <= 0)
+        while (currentTime > 0)
         {
             currentTime -= Time.deltaTime;
+            currentTime = Mathf.Clamp(currentTime, 0, second);
             await UniTask.NextFrame();
         }
 

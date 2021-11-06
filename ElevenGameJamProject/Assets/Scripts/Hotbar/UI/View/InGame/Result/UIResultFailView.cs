@@ -16,8 +16,8 @@ namespace Hotbar.UI.View.Result
         public Text contentsText;
         public Button replayButton;
 
-        Vector3 gameOverInitialPos;
-        Vector3 scoreInitilPos;
+        public Transform gameOverIconInitialTransform;
+        public Transform scoreTextInitialTransform;
 
         /// <summary>
         /// ½ÇÆÐ °á°úÃ¢À» ¶ç¿öÁÜ
@@ -29,11 +29,8 @@ namespace Hotbar.UI.View.Result
             await backgroundImage.DOFade(0, 0).AsyncWaitForCompletion();
             await contentsText.DOFade(0, 0).AsyncWaitForCompletion();
 
-            gameOverInitialPos = gameOverIcon.transform.position;
-            gameOverIcon.transform.position = new Vector2(Screen.width * 1.5f, gameOverInitialPos.y);
-
-            scoreInitilPos = scoreText.transform.position;
-            scoreText.transform.position = new Vector2(-Screen.width * 1.5f, gameOverInitialPos.y);
+            gameOverIcon.transform.position = new Vector2(Screen.width * 1.5f, gameOverIconInitialTransform.position.y);
+            scoreText.transform.position = new Vector2(-Screen.width * 1.5f, scoreTextInitialTransform.position.y);
 
             replayButton.onClick?.RemoveAllListeners();
             replayButton.onClick?.AddListener(delegate
@@ -48,8 +45,8 @@ namespace Hotbar.UI.View.Result
             await Task.WhenAll(tasks);
             tasks.Clear();
 
-            tasks.Add(gameOverIcon.transform.DOMove(gameOverInitialPos, 1.2f).AsyncWaitForCompletion());
-            tasks.Add(scoreText.transform.DOMove(scoreInitilPos, 1.2f).AsyncWaitForCompletion());
+            tasks.Add(gameOverIcon.transform.DOMove(gameOverIconInitialTransform.position, 1.2f).AsyncWaitForCompletion());
+            tasks.Add(scoreText.transform.DOMove(scoreTextInitialTransform.position, 1.2f).AsyncWaitForCompletion());
             await Task.WhenAll(tasks);
             tasks.Clear();
 

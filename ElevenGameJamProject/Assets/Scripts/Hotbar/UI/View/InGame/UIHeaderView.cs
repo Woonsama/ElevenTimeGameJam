@@ -18,5 +18,9 @@ namespace Hotbar.UI.View
         {
             
         }
+
+        public void SetRemainPlayTime() => remainPlayTimeText.text = string.Format("{0}", TimeManager.Instance.currentTime.ToString("n2"));
+
+        public void RefreshRemainPlayTime() => remainPlayTimeText.text = string.Format("{0}", TimeManager.Instance.currentTime.ToString("n2"));
     }
 }
