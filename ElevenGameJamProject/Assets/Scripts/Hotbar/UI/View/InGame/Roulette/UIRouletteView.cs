@@ -28,6 +28,9 @@ namespace Hotbar.UI.View.Roulette
         [Header("BackgroundImage")]
         public Image backgroundImage;
 
+        [Header("Roulette Light")]
+        public Image rouletteLight;
+
         [Header("Fill")]
         public Image hardFill;
         public Image luckyFill;
@@ -80,6 +83,8 @@ namespace Hotbar.UI.View.Roulette
 
             await Task.Delay(500);
 
+            rouletteLight.gameObject.SetActive(true);
+
             tasks.Add(resultImage.transform.DOScale(1.7f, 0.8f).AsyncWaitForCompletion());
             await Task.WhenAll(tasks);
             tasks.Clear();
@@ -116,6 +121,7 @@ namespace Hotbar.UI.View.Roulette
             roulette.transform.position = rouletteStartTransform.position;
             backgroundImage.DOFade(0f, 0.7f);
             resultImage.transform.DOScale(0, 0);
+            rouletteLight.gameObject.SetActive(false);
         }
 
         private RouletteType GetRouletteResult(float fill)

@@ -15,6 +15,7 @@ public class InGameManager : SingletonMonoBase<InGameManager>
         await uiHeaderView.InitView();
 
         var view = await UIManager.Instance.OpenView(UIManager.ViewType.Roulette);
+        view.Close();
 
         //TimeManager.Instance.StartTimer(11, async () =>
         //{
