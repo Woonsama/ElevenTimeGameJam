@@ -60,6 +60,12 @@ namespace eleven.game
 
         [SerializeField]
         Transform objectTransform;
+
+        [SerializeField]
+        GameObject ObstacleBanana, ObstacleSealion;
+
+        public int ObstacleBananaCount, ObstacleSealionCount;
+
         
 
         private void Start()
@@ -72,6 +78,7 @@ namespace eleven.game
         {
             InitGround();
             InitItem();
+            InitObstacle();
         }
 
         void InitGround()
@@ -152,6 +159,40 @@ namespace eleven.game
                         tuna.name = $"tuna_{xPos}_{yPos}";
                         tuna.transform.localPosition = tileMap.GetCellCenterLocal(new Vector3Int(xPos, yPos, 0));
                     }
+                }
+            }
+        }
+
+        void InitObstacle()
+        {
+            int bananaCount = ObstacleBananaCount;
+            int sealionCount = ObstacleSealionCount;
+            //땅 위.. 또는 점프로 획득 가능한 곳에 배치
+            //일단 배치할 X 좌표를 구함
+            int[] xPoses = Enumerable.Range(possibleItemBatchStart, tileHeight.Count - possibleItemBatchStart)
+                                        .OrderBy(v => UnityEngine.Random.value).Take(bananaCount + sealionCount).ToArray();
+
+            for (int x = 0; x < xPoses.Length; x++)
+            {
+
+
+                int xPos = xPoses[x];
+                int yPos = tileHeight[xPos] + 1;
+                yPos = Mathf.Clamp(yPos, 0, 6);
+
+                Debug.Log($"{xPos} {tileHeight[xPos]} {tileMap.GetCellCenterLocal(new Vector3Int(xPos, yPos, 0))}");
+
+                if (bananaCount-- > 0)
+                {
+                    GameObject banana = Instantiate(ObstacleBanana, objectTransform);
+                    banana.name = $"banana_{xPos}_{yPos}";
+                    banana.transform.localPosition = tileMap.GetCellCenterLocal(new Vector3Int(xPos, yPos, 0));
+                }
+                else if (sealionCount-- > 0)
+                {
+                    GameObject sealion = Instantiate(ObstacleSealion, objectTransform);
+                    sealion.name = $"sealion_{xPos}_{yPos}";
+                    sealion.transform.localPosition = tileMap.GetCellCenterLocal(new Vector3Int(xPos, yPos, 0));
                 }
             }
         }
