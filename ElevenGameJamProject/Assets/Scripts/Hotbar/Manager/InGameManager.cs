@@ -28,10 +28,37 @@ public class InGameManager : SingletonMonoBase<InGameManager>
         switch (mode)
         {
             case Hotbar.Enum.RouletteType.Hard:
+                BackgroundController.Instance.groundMapManager.SquidCount = 5;
+                BackgroundController.Instance.groundMapManager.TunaCount = 5;
+
+                BackgroundController.Instance.groundMapManager.ObstacleBananaCount = 5;
+                BackgroundController.Instance.groundMapManager.ObstacleSealionCount = 5;
+                BackgroundController.Instance.groundMapManager.ObstaclePuddle1Count = 1;
+                BackgroundController.Instance.groundMapManager.ObstaclePuddle2Count = 0;
+                BackgroundController.Instance.groundMapManager.ObstaclePuddle3Count = 0;
+
                 break;
             case Hotbar.Enum.RouletteType.Lucky:
+                BackgroundController.Instance.groundMapManager.SquidCount = 3;
+                BackgroundController.Instance.groundMapManager.TunaCount = 3;
+
+                BackgroundController.Instance.groundMapManager.ObstacleBananaCount = 3;
+                BackgroundController.Instance.groundMapManager.ObstacleSealionCount = 3;
+                BackgroundController.Instance.groundMapManager.ObstaclePuddle1Count = 0;
+                BackgroundController.Instance.groundMapManager.ObstaclePuddle2Count = 0;
+                BackgroundController.Instance.groundMapManager.ObstaclePuddle3Count = 0;
+
                 break;
             case Hotbar.Enum.RouletteType.Normal:
+                BackgroundController.Instance.groundMapManager.SquidCount = 4;
+                BackgroundController.Instance.groundMapManager.TunaCount = 4;
+
+                BackgroundController.Instance.groundMapManager.ObstacleBananaCount = 4;
+                BackgroundController.Instance.groundMapManager.ObstacleSealionCount = 4;
+                BackgroundController.Instance.groundMapManager.ObstaclePuddle1Count = 0;
+                BackgroundController.Instance.groundMapManager.ObstaclePuddle2Count = 0;
+                BackgroundController.Instance.groundMapManager.ObstaclePuddle3Count = 0;
+
                 break;
             default:
                 break;
@@ -39,6 +66,7 @@ public class InGameManager : SingletonMonoBase<InGameManager>
 
         rouletteView.Close();
 
+        this.score = 0;
         StartGame();
     }
 
@@ -53,7 +81,6 @@ public class InGameManager : SingletonMonoBase<InGameManager>
         uiHeaderView.SetRemainPlayTime();
 
         //인게임 시작
-        SetScore(0);
         BackgroundController.Instance.Init();
         BackgroundController.Instance.StartGame();
     }
@@ -63,10 +90,10 @@ public class InGameManager : SingletonMonoBase<InGameManager>
         uiHeaderView.RefreshRemainPlayTime();
     }
 
-    public void SetScore(int score)
+    public void AddScore(int score)
     {
-        this.score = score;
-        uiHeaderView.SetScore(score);
+        this.score += score;
+        uiHeaderView.SetScore(this.score);
     }
 
     #region Event

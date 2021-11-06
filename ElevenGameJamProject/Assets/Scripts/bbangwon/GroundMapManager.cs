@@ -53,9 +53,6 @@ namespace eleven.game
         [Header("아이템 생성될 +Y 위치(점프고려)")]
         public MinAndMaxInt possibleItemYPos;
 
-        [SerializeField]
-        GameObject[] ObstaclePrefab;
-        
         public int possibleItemBatchStart;
 
         [SerializeField]
@@ -67,6 +64,11 @@ namespace eleven.game
         public int ObstacleBananaCount, ObstacleSealionCount, ObstaclePuddle1Count, ObstaclePuddle2Count, ObstaclePuddle3Count;
 
         public GameObject Penguin, DeadZone;
+
+        [SerializeField]
+        GameObject home;
+
+        public int homeDrawIndex;
 
         bool init = false;
 
@@ -82,6 +84,7 @@ namespace eleven.game
             if(!init)
             {
                 InitGround();
+                InitHome();
                 InitItem();
                 InitObstacle();
                 InitPenguinDeadZone();
@@ -130,6 +133,16 @@ namespace eleven.game
                 x = DrawGround(x, y, drawXCnt);
                 tileHeight.AddRange(Enumerable.Repeat(y == 0 ? 1 : y, drawXCnt));
             }
+        }
+
+        void InitHome()
+        {
+            int xPos = homeDrawIndex;
+            int yPos = tileHeight[homeDrawIndex] + 1;
+
+            GameObject Home = Instantiate(home, objectTransform);
+            Home.name = $"Home_{xPos}_{yPos}";
+            Home.transform.localPosition = tileMap.GetCellCenterLocal(new Vector3Int(xPos, yPos, 0));            
         }
 
         void InitItem()
