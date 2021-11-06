@@ -74,6 +74,8 @@ namespace eleven.game
 
         GameObject Player;
 
+        List<Item> itemList = new List<Item>();
+
         private void Awake()
         {
             tileMap = GetComponentInChildren<Tilemap>();
@@ -89,7 +91,14 @@ namespace eleven.game
                 InitObstacle();
                 InitPenguinDeadZone();
                 init = true;
-            }          
+            }
+            else
+            {
+                foreach (var item in itemList)
+                {
+                    item.gameObject.SetActive(true);
+                }
+            }
         }
 
         void InitGround()
@@ -168,12 +177,14 @@ namespace eleven.game
                     GameObject squid = Instantiate(ItemSquid, objectTransform);
                     squid.name = $"squid_{xPos}_{yPos}";
                     squid.transform.localPosition = tileMap.GetCellCenterLocal(new Vector3Int(xPos, yPos, 0));
+                    itemList.Add(squid.GetComponent<Item>());
                 }
                 else if (tunaCount-- > 0)
                 {
                     GameObject tuna = Instantiate(ItemTuna, objectTransform);
                     tuna.name = $"tuna_{xPos}_{yPos}";
                     tuna.transform.localPosition = tileMap.GetCellCenterLocal(new Vector3Int(xPos, yPos, 0));
+                    itemList.Add(tuna.GetComponent<Item>());
                 }
             }
         }

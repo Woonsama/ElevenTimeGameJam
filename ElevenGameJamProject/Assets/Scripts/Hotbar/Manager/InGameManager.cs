@@ -64,9 +64,7 @@ public class InGameManager : SingletonMonoBase<InGameManager>
                 break;
         }
 
-        rouletteView.Close();
-
-        this.score = 0;
+        rouletteView.Close();        
         StartGame();
     }
 
@@ -81,6 +79,9 @@ public class InGameManager : SingletonMonoBase<InGameManager>
         uiHeaderView.SetRemainPlayTime();
 
         //인게임 시작
+        SetScore(0);
+        uiHeaderView.SetScore(this.score);
+
         BackgroundController.Instance.Init();
         BackgroundController.Instance.StartGame();
     }
@@ -90,10 +91,15 @@ public class InGameManager : SingletonMonoBase<InGameManager>
         uiHeaderView.RefreshRemainPlayTime();
     }
 
+    public void SetScore(int score)
+    {
+        this.score = score;
+        uiHeaderView.SetScore(this.score);
+    }
+
     public void AddScore(int score)
     {
-        this.score += score;
-        uiHeaderView.SetScore(this.score);
+        SetScore(this.score + score);
     }
 
     #region Event
