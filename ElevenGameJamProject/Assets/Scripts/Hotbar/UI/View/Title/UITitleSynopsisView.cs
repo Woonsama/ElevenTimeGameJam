@@ -10,7 +10,14 @@ namespace Hotbar.UI.View.Title
     public class UITitleSynopsisView : UIViewBase
     {
         public Text sysnopsisText;
+        public Transform cloudImage;
         public Button skipButton;
+
+        private void Update()
+        {
+            cloudImage.position += Vector3.left * Time.deltaTime * 10;
+            sysnopsisText.transform.position += Vector3.up * Time.deltaTime * 30;
+        }
 
         public override async Task InitView()
         {
@@ -26,12 +33,6 @@ namespace Hotbar.UI.View.Title
         private void OnClickSkipButton()
         {
 
-        }
-
-        private void OnEnable()
-        {
-            sysnopsisText.transform.position = new Vector3(0, 25, 0);
-            sysnopsisText.transform.DOMoveY(0, 10.0f);
         }
     }
 
