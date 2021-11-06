@@ -39,5 +39,10 @@ namespace Hotbar.UI.View
             scoreText.DOKill();
             scoreText.transform.DOScale(1.5f, 0.3f).SetLoops(2, LoopType.Yoyo);
         }
+
+        public async void OnClickSettingButton()
+        {
+            await UIManager.Instance.OpenView(UIManager.ViewType.InGameSetting);
+        }
     }
 }
