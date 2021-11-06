@@ -37,7 +37,7 @@ namespace Hotbar.UI.View
         public void StartScoreUpEffect()
         {
             scoreText.DOKill();
-            scoreText.transform.DOScale(1.2f, 0.2f).SetLoops(2, LoopType.Yoyo);
+            scoreText.transform.DOScale(1.5f, 0.3f).SetLoops(2, LoopType.Yoyo);
         }
     }
 }
