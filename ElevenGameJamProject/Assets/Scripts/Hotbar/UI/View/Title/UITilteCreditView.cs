@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Hotbar.UI.View.Title
 {
-    public class UITitleCreditView : UIViewBase
+    public class UITilteCreditView : UIViewBase
     {
         public override async Task InitView()
         {

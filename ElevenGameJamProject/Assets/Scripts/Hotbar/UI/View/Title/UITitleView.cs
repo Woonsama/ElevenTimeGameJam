@@ -10,9 +10,9 @@ namespace Hotbar.UI.View.Title
     {
         [Header("UITitleContentView")] public UITitleContentView uiTitleContentView;
         [Header("UITitleContentView")] public UITitleSynopsisView uiTitleSynopsisView;
-        [Header("UITitleContentView")] public UITitleSynopsisView uiTitleRankingView;
-        [Header("UITitleContentView")] public UITitleSynopsisView uiTitleSettingView;
-        [Header("UITitleContentView")] public UITitleSynopsisView uiTitleCreditView;
+        [Header("UITitleContentView")] public UITitleRankingView uiTitleRankingView;
+        [Header("UITitleContentView")] public UITitleSettingView uiTitleSettingView;
+        [Header("UITitleContentView")] public UITilteCreditView uiTitleCreditView;
 
 
         public override async Task InitView()
