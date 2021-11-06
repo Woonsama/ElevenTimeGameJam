@@ -18,7 +18,7 @@ public class PenguinEvent : MonoBehaviour
         Muone2SoundManager.instance.soundBGMOffOn();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private async void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Item"))
         {
@@ -36,6 +36,8 @@ public class PenguinEvent : MonoBehaviour
         {
             PenguinAnimator.SetBool("isDie", true );  //실제론 메니저에서 죽음을 온하는 함수를 받아와야 함. 게임의 다른 것들도 멈춰야함.
             Muone2SoundManager.instance.soundDieOffOn();
+
+            await InGameManager.Instance.OpenGameFailView();
         }
 
         if (collision.gameObject.CompareTag("Home"))
@@ -44,7 +46,11 @@ public class PenguinEvent : MonoBehaviour
             Debug.Log("Good Ending on");
             Debug.Log("your score is" + score);
             Muone2SoundManager.instance.soundGoalHomeOffOn();
+
+            await InGameManager.Instance.OpenGameClearView();
         }
+
+        
     }
 
 }

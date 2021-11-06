@@ -18,5 +18,10 @@ namespace eleven.game
                 transform.Translate(Vector3.left * Speed * Time.deltaTime);
             }
         }
+
+        public void ResetScroll()
+        {
+            transform.localPosition = Vector3.zero;
+        }
     }
 }

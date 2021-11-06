@@ -28,15 +28,16 @@ namespace eleven.game
             PauseScroll();
         }
 
-        private void Start()
-        {
-            Init();
-        }
-
         public void Init()
         {
+            groundMapManager.Init();            
+        }
+
+        public void StartGame()
+        {            
             ResumeScroll();
-            groundMapManager.Init();
+            gridScroller.ResetScroll();
+            groundMapManager.NewPlayer();
         }
 
         public void PauseScroll()
@@ -54,9 +55,5 @@ namespace eleven.game
             ice.Scroll = true;
             gridScroller.Scroll = true;
         }
-
-
-
     }
-
 }

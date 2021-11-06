@@ -68,6 +68,10 @@ namespace eleven.game
 
         public GameObject Penguin, DeadZone;
 
+        bool init = false;
+
+        GameObject Player;
+
         private void Awake()
         {
             tileMap = GetComponentInChildren<Tilemap>();
@@ -75,10 +79,14 @@ namespace eleven.game
 
         public void Init()
         {
-            InitGround();
-            InitItem();
-            InitObstacle();
-            InitPenguinDeadZone();
+            if(!init)
+            {
+                InitGround();
+                InitItem();
+                InitObstacle();
+                InitPenguinDeadZone();
+                init = true;
+            }          
         }
 
         void InitGround()
@@ -213,9 +221,16 @@ namespace eleven.game
             }
         }
         void InitPenguinDeadZone()
-        {
-            Instantiate(Penguin, new Vector3(-7, -2, 0), Quaternion.identity);
+        {            
             Instantiate(DeadZone, new Vector3(0, 0, 0), Quaternion.identity);
+        }
+
+        public void NewPlayer()
+        {
+            if(Player != null)
+                Destroy(Player);
+
+            Player = Instantiate(Penguin, new Vector3(-7, -2, 0), Quaternion.identity);
         }
 
 
