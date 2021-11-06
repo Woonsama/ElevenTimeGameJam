@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace eleven.game
 {
-    public class Item : MonoBehaviour
+    public class Item : ObjectBase
     {        
         public int Score;
 
