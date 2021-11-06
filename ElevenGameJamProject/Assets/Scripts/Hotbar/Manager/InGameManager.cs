@@ -14,14 +14,16 @@ public class InGameManager : SingletonMonoBase<InGameManager>
     {
         await uiHeaderView.InitView();
 
-        TimeManager.Instance.StartTimer(11, async () =>
-        {
-            Debug.Log("Time Ended");
+        var view = await UIManager.Instance.OpenView(UIManager.ViewType.Roulette);
 
-            var view = await UIManager.Instance.OpenView(UIManager.ViewType.FailResult);
-            await ((UIResultFailView)view).Show(() => { Debug.Log("다시 시작 버튼 누름"); });
-        });
-        uiHeaderView.SetRemainPlayTime();
+        //TimeManager.Instance.StartTimer(11, async () =>
+        //{
+        //    Debug.Log("Time Ended");
+
+        //    var view = await UIManager.Instance.OpenView(UIManager.ViewType.FailResult);
+        //    await ((UIResultFailView)view).Show(() => { Debug.Log("다시 시작 버튼 누름"); });
+        //});
+        //uiHeaderView.SetRemainPlayTime();
     }
 
     private void Update()
