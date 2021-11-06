@@ -25,8 +25,10 @@ namespace Hotbar.UI.View.Result
         /// <param name="replayAction">다시 시작 버튼 클릭 시 발생하는 이벤트</param>
         /// <param name="backAction">뒤로 가기 버튼 클릭 시 발생하는 이벤트</param>
         /// <returns></returns>
-        public async Task Show(UnityAction replayAction, UnityAction backAction)
+        public async Task Show(int score, UnityAction replayAction, UnityAction backAction)
         {
+            scoreText.text = $"Score : {score}";
+
             replayButton.onClick?.AddListener(delegate
             {
                 replayAction?.Invoke();
