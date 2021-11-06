@@ -36,19 +36,20 @@ namespace Hotbar.UI.View.Title
         private void SetScores()
         {
             // TEST CODE
-            //{
-            //    int[] testArray = new int[21];
-            //    string[] testArray2 = new string[21];
-            //    for (int i = 0; i < 21; i++)
-            //    {
-            //        testArray[i] = Random.Range(0, 100);
-            //        testArray2[i] = "BBB";
-            //    }
-            //    testArray2[0] = "AAA";
-            //    PlayerPrefsX.SetStringArray("PlayerNameInfo", testArray2);
-            //    PlayerPrefsX.SetIntArray("PlayerScoreInfo", testArray);
-            //}
-            
+            {
+                int[] testArray = new int[21];
+                string[] testArray2 = new string[21];
+                for (int i = 0; i < 21; i++)
+                {
+                    testArray[i] = 0;
+                    //testArray[i] = Random.Range(0, 100);
+                    testArray2[i] = "name";
+                }
+                //testArray2[0] = "AAA";
+                //PlayerPrefsX.SetStringArray("PlayerNameInfo", testArray2);
+                //PlayerPrefsX.SetIntArray("PlayerScoreInfo", testArray);
+            }
+
             var playerNameInfoArray = PlayerPrefsX.GetStringArray("PlayerNameInfo");
             var playerScoreInfoArray = PlayerPrefsX.GetIntArray("PlayerScoreInfo");
             int temp1;
