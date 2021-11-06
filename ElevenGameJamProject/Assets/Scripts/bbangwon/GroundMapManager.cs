@@ -164,6 +164,11 @@ namespace eleven.game
         {
             int bananaCount = ObstacleBananaCount;
             int sealionCount = ObstacleSealionCount;
+
+            int puddle1 = ObstaclePuddle1Count;
+            int puddle2 = ObstaclePuddle1Count;
+            int puddle3 = ObstaclePuddle1Count;
+
             //땅 위.. 또는 점프로 획득 가능한 곳에 배치
             //일단 배치할 X 좌표를 구함
             int[] xPoses = Enumerable.Range(possibleItemBatchStart, tileHeight.Count - possibleItemBatchStart)                                        
@@ -192,19 +197,19 @@ namespace eleven.game
                     sealion.name = $"sealion_{xPos}_{yPos}";
                     sealion.transform.localPosition = tileMap.GetCellCenterLocal(new Vector3Int(xPos, yPos+1, 0));
                 }
-                else if(ObstaclePuddle1Count-- > 0)
+                else if(puddle1-- > 0)
                 {
                     GameObject puddle = Instantiate(ObstaclePuddle1, objectTransform);
                     puddle.name = $"puddle1_{xPos}_{yPos}";
                     puddle.transform.localPosition = tileMap.GetCellCenterLocal(new Vector3Int(xPos, yPos, 0));
                 }
-                else if (ObstaclePuddle2Count-- > 0)
+                else if (puddle2-- > 0)
                 {
                     GameObject puddle = Instantiate(ObstaclePuddle2, objectTransform);
                     puddle.name = $"puddle2_{xPos}_{yPos}";
                     puddle.transform.localPosition = tileMap.GetCellCenterLocal(new Vector3Int(xPos, yPos, 0));
                 }
-                else if (ObstaclePuddle3Count-- > 0)
+                else if (puddle3-- > 0)
                 {
                     GameObject puddle = Instantiate(ObstaclePuddle3, objectTransform);
                     puddle.name = $"puddle3_{xPos}_{yPos}";
