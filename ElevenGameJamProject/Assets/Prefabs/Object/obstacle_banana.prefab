@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2421192311800148176}
   - component: {fileID: 6172382510878928911}
   - component: {fileID: 5051231230787556}
-  - component: {fileID: 1384413721010999619}
+  - component: {fileID: 4723533058247544467}
   m_Layer: 0
   m_Name: obstacle_banana
   m_TagString: Obstacle
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1656889229
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 8eb83177062ed3f4cb03043645bb2440, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InTileSize: {x: 1, y: 1}
---- !u!61 &1384413721010999619
-BoxCollider2D:
+--- !u!58 &4723533058247544467
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -110,16 +110,6 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.19800001}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.3}
-    oldSize: {x: 1.36, y: 0.99}
-    newSize: {x: 1.36, y: 0.99}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0.0429399, y: 0.19799978}
   serializedVersion: 2
-  m_Size: {x: 1.36, y: 0.99}
-  m_EdgeRadius: 0
+  m_Radius: 0.47035265
