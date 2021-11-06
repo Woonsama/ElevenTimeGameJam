@@ -44,15 +44,37 @@ namespace eleven.game
 
         [Header("한번에 그려질 수 있는 X")]
         public MinAndMaxInt drawXPossibleCount;
+
+        [SerializeField]
+        GameObject ItemSquid, ItemTuna;
+
+        public int SquidCount, TunaCount;
+
+        [Header("아이템 생성될 +Y 위치(점프고려)")]
+        public MinAndMaxInt possibleItemYPos;
+
+        [SerializeField]
+        GameObject[] ObstaclePrefab;
+        
+        public int possibleItemBatchStart;
+
+        [SerializeField]
+        Transform objectTransform;
         
 
         private void Start()
         {
             tileMap = GetComponentInChildren<Tilemap>();
-            InitGround();           
+            Init();
         }         
 
-        public void InitGround()
+        public void Init()
+        {
+            InitGround();
+            InitItem();
+        }
+
+        void InitGround()
         {
             tileHeight = new List<int>();
             int x = -1;
@@ -62,14 +84,14 @@ namespace eleven.game
             int bgCount = beginGroundCount.GetRandomOne();
             x = DrawGround(x, y, bgCount + 1);
 
-            tileHeight.AddRange(Enumerable.Repeat(y, bgCount));
+            tileHeight.AddRange(Enumerable.Repeat(y == 0 ? 1 : y, bgCount));
 
             //2. 다음부터는 위 또는 아래에 그림
             while(x < MaxDrawBound.x)
             {
                 // 2.1. 홀 크기 
                 int holeXCnt = holeXPossibleCount.GetRandomOne();
-                tileHeight.AddRange(Enumerable.Repeat(-1, holeXCnt));
+                tileHeight.AddRange(Enumerable.Repeat(y==0?1:y, holeXCnt));
                 x += holeXCnt;
 
                 //2.2 Y 위치 조정(높이에 따라 확률 재계산이 필요함)..다음 땅 높이 계산
@@ -91,7 +113,46 @@ namespace eleven.game
                 //3.3 다음 땅 그리기                               
                 int drawXCnt = drawXPossibleCount.GetRandomOne();
                 x = DrawGround(x, y, drawXCnt);
-                tileHeight.AddRange(Enumerable.Repeat(y, holeXCnt));
+                tileHeight.AddRange(Enumerable.Repeat(y == 0 ? 1 : y, drawXCnt));
+            }
+        }
+
+        void InitItem()
+        {
+            int squidCount = SquidCount;
+            int tunaCount = TunaCount;
+            //땅 위.. 또는 점프로 획득 가능한 곳에 배치
+            //일단 배치할 X 좌표를 구함
+            int[] xPoses = Enumerable.Range(possibleItemBatchStart, tileHeight.Count - possibleItemBatchStart)
+                                        .OrderBy(v => UnityEngine.Random.value).Take(squidCount + tunaCount).ToArray();
+
+            for (int x = 0; x < xPoses.Length; x++)
+            {
+
+
+                int xPos = xPoses[x];
+                int yPos = tileHeight[xPos] + possibleItemYPos.GetRandomOne();
+                yPos = Mathf.Clamp(yPos, 0, 6);
+
+                Debug.Log($"{xPos} {tileHeight[xPos]} {tileMap.GetCellCenterLocal(new Vector3Int(xPos, yPos, 0))}");
+
+
+
+                if (squidCount-- > 0)
+                {
+                    GameObject squid = Instantiate(ItemSquid, objectTransform);
+                    squid.name = $"squid_{xPos}_{yPos}";
+                    squid.transform.localPosition = tileMap.GetCellCenterLocal(new Vector3Int(xPos, yPos, 0));
+                }
+                else
+                {
+                    if (tunaCount-- > 0)
+                    {
+                        GameObject tuna = Instantiate(ItemTuna, objectTransform);
+                        tuna.name = $"tuna_{xPos}_{yPos}";
+                        tuna.transform.localPosition = tileMap.GetCellCenterLocal(new Vector3Int(xPos, yPos, 0));
+                    }
+                }
             }
         }
 
