@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 389776568289328933}
   - component: {fileID: 1668109437824526469}
   m_Layer: 5
-  m_Name: UIInnerSettingView
+  m_Name: UISettingView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

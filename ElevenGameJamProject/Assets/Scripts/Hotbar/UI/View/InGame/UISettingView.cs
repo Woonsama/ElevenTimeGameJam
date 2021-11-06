@@ -8,7 +8,7 @@ using UnityEngine.Events;
 
 namespace Hotbar.UI.View
 {
-    public class UIInGameSettingView : UIViewBase
+    public class UISettingView : UIViewBase
     {
         [Header("Window")]
         public Dropdown dropdown;
