@@ -11,6 +11,7 @@ public class PenguinEvent : MonoBehaviour
     private void Start()
     {
         PenguinAnimator = GetComponent<Animator>();
+        InGameManager.Instance.uiHeaderView.SetScore(0);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -20,6 +21,8 @@ public class PenguinEvent : MonoBehaviour
             Item item = collision.GetComponent<Item>();
 
             score = score + item?.Score ?? 0;
+            InGameManager.Instance.uiHeaderView.SetScore(score);
+
             collision.gameObject.SetActive(false);
         }
 
