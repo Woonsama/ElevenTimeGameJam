@@ -723,6 +723,58 @@ PrefabInstance:
       propertyPath: uiHeaderView
       value: 
       objectReference: {fileID: 1273164367}
+    - target: {fileID: 4898015209204254071, guid: 1f87c2f395f53174aa0eded331847019, type: 3}
+      propertyPath: hard.tunaCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898015209204254071, guid: 1f87c2f395f53174aa0eded331847019, type: 3}
+      propertyPath: hard.squidCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898015209204254071, guid: 1f87c2f395f53174aa0eded331847019, type: 3}
+      propertyPath: lucky.tunaCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898015209204254071, guid: 1f87c2f395f53174aa0eded331847019, type: 3}
+      propertyPath: lucky.squidCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898015209204254071, guid: 1f87c2f395f53174aa0eded331847019, type: 3}
+      propertyPath: normal.tunaCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898015209204254071, guid: 1f87c2f395f53174aa0eded331847019, type: 3}
+      propertyPath: normal.squidCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898015209204254071, guid: 1f87c2f395f53174aa0eded331847019, type: 3}
+      propertyPath: hard.obstacleBananaCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898015209204254071, guid: 1f87c2f395f53174aa0eded331847019, type: 3}
+      propertyPath: hard.obstaclePuddle1Count
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898015209204254071, guid: 1f87c2f395f53174aa0eded331847019, type: 3}
+      propertyPath: hard.obstacleSealionCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898015209204254071, guid: 1f87c2f395f53174aa0eded331847019, type: 3}
+      propertyPath: lucky.obstacleBananaCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898015209204254071, guid: 1f87c2f395f53174aa0eded331847019, type: 3}
+      propertyPath: lucky.obstacleSealionCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898015209204254071, guid: 1f87c2f395f53174aa0eded331847019, type: 3}
+      propertyPath: normal.obstacleBananaCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898015209204254071, guid: 1f87c2f395f53174aa0eded331847019, type: 3}
+      propertyPath: normal.obstacleSealionCount
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4898015209204254072, guid: 1f87c2f395f53174aa0eded331847019, type: 3}
       propertyPath: m_Name
       value: InGameManager
