@@ -132,7 +132,7 @@ public class InGameManager : SingletonMonoBase<InGameManager>
             Debug.Log("Replay Button Click");
             StartGame();
 
-        }, () =>
+        }, (name) =>
         {
             Debug.Log("Back Button Click");
             SceneManager.LoadScene("TitleScene");  //타이틀로
