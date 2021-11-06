@@ -66,7 +66,7 @@ namespace eleven.game
 
         public int ObstacleBananaCount, ObstacleSealionCount, ObstaclePuddle1Count, ObstaclePuddle2Count, ObstaclePuddle3Count;
 
-        
+        public GameObject Penguin, DeadZone;
 
         private void Start()
         {
@@ -79,6 +79,7 @@ namespace eleven.game
             InitGround();
             InitItem();
             InitObstacle();
+            InitPenguinDeadZone();
         }
 
         void InitGround()
@@ -211,6 +212,11 @@ namespace eleven.game
                     puddle.transform.localPosition = tileMap.GetCellCenterLocal(new Vector3Int(xPos, yPos, 0));
                 }
             }
+        }
+        void InitPenguinDeadZone()
+        {
+            Instantiate(Penguin, new Vector3(-7, -2, 0), Quaternion.identity);
+            Instantiate(DeadZone, new Vector3(0, 0, 0), Quaternion.identity);
         }
 
 
