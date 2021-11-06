@@ -14,11 +14,11 @@ public class InGameManager : SingletonMonoBase<InGameManager>
 {
     public UIHeaderView uiHeaderView;
 
+    int score = 0;
+
     private async void Awake()
     {
         await uiHeaderView.InitView();
-
-
 
         ////·ê·¿ ÆË¾÷ ¶ç¿ì±â
         var rouletteView = await UIManager.Instance.OpenView(UIManager.ViewType.Roulette);
@@ -53,6 +53,7 @@ public class InGameManager : SingletonMonoBase<InGameManager>
         uiHeaderView.SetRemainPlayTime();
 
         //ÀÎ°ÔÀÓ ½ÃÀÛ
+        SetScore(0);
         BackgroundController.Instance.Init();
         BackgroundController.Instance.StartGame();
     }
@@ -60,6 +61,12 @@ public class InGameManager : SingletonMonoBase<InGameManager>
     private void Update()
     {
         uiHeaderView.RefreshRemainPlayTime();
+    }
+
+    public void SetScore(int score)
+    {
+        this.score = score;
+        uiHeaderView.SetScore(score);
     }
 
     #region Event
@@ -70,7 +77,7 @@ public class InGameManager : SingletonMonoBase<InGameManager>
         TimeManager.Instance.StopTimer();
 
         var clearView = await UIManager.Instance.OpenView(UIManager.ViewType.ClearResult);
-        await ((UIResultClearView)clearView).Show(500, (name) =>
+        await ((UIResultClearView)clearView).Show(this.score, (name) =>
         {
             Debug.Log("Replay Button Click");
             StartGame();
@@ -88,7 +95,7 @@ public class InGameManager : SingletonMonoBase<InGameManager>
         TimeManager.Instance.StopTimer();
 
         var failView = await UIManager.Instance.OpenView(UIManager.ViewType.FailResult);
-        await ((UIResultFailView)failView).Show(500, () =>
+        await ((UIResultFailView)failView).Show(this.score, () =>
         {
             Debug.Log("Replay Button Click");
             StartGame();

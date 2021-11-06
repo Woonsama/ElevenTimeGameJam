@@ -7,11 +7,13 @@ public class PenguinEvent : MonoBehaviour
 {
     public int score;
     public Animator PenguinAnimator;
+    bool isDead = false;
+    bool isComplete = false;
 
     private void Start()
     {
         PenguinAnimator = GetComponent<Animator>();
-        InGameManager.Instance.uiHeaderView.SetScore(0);
+        InGameManager.Instance.SetScore(0);
     }
     void OnEnable()
     {
@@ -20,12 +22,15 @@ public class PenguinEvent : MonoBehaviour
 
     private async void OnTriggerEnter2D(Collider2D collision)
     {
+        if (isDead || isComplete)
+            return;
+
         if (collision.gameObject.CompareTag("Item"))
         {
             Item item = collision.GetComponent<Item>();
 
             score = score + item?.Score ?? 0;
-            InGameManager.Instance.uiHeaderView.SetScore(score);
+            InGameManager.Instance.SetScore(score);
 
             collision.gameObject.SetActive(false);
 
@@ -36,6 +41,7 @@ public class PenguinEvent : MonoBehaviour
         {
             PenguinAnimator.SetBool("isDie", true );  //실제론 메니저에서 죽음을 온하는 함수를 받아와야 함. 게임의 다른 것들도 멈춰야함.
             Muone2SoundManager.instance.soundDieOffOn();
+            isDead = true;
 
             await InGameManager.Instance.OpenGameFailView();
         }
@@ -46,6 +52,7 @@ public class PenguinEvent : MonoBehaviour
             Debug.Log("Good Ending on");
             Debug.Log("your score is" + score);
             Muone2SoundManager.instance.soundGoalHomeOffOn();
+            isComplete = true;
 
             await InGameManager.Instance.OpenGameClearView();
         }
