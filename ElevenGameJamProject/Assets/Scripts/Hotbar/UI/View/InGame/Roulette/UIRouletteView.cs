@@ -11,6 +11,8 @@ namespace Hotbar.UI.View.Roulette
 {
     public class UIRouletteView : UIViewBase
     {
+        #region Member
+
         [Header("Roulette Pattern")]
         public List<UniTuple<float, float, float>> rouletteFillPattern = new List<UniTuple<float, float, float>>();
 
@@ -42,30 +44,16 @@ namespace Hotbar.UI.View.Roulette
         [Header("Roulette Loop Count")]
         public int loopCount;
 
-        public override async Task InitView() => await StartSpin();
-
         private readonly int angle = 360;
         private UniTuple<float, float, float> currentPattern;
 
-        public async Task<RouletteType> StartSpin()
-        {
-            return await StartSpinAnimation();
-        }
+        #endregion
 
-        #region Private
+        public override async Task InitView() => await StartSpin();
+
+        public async Task<RouletteType> StartSpin() => await StartSpinAnimation();
 
         private UniTuple<float, float, float> ChoosePattern() => rouletteFillPattern[Random.Range(0, rouletteFillPattern.Count)];
-
-        private void SetFill()
-        {
-            currentPattern = ChoosePattern();
-            hardFill.fillAmount = currentPattern.Item1;
-            luckyFill.fillAmount = currentPattern.Item2;
-            normalFill.fillAmount = currentPattern.Item3;
-
-            luckyFill.transform.rotation = Quaternion.Euler(new Vector3(luckyFill.transform.rotation.x, luckyFill.transform.rotation.y, angle * luckyFill.fillAmount));
-            normalFill.transform.rotation = Quaternion.Euler(new Vector3(normalFill.transform.rotation.x, normalFill.transform.rotation.y, angle * luckyFill.fillAmount + angle * normalFill.fillAmount));
-        }
 
         private async Task<RouletteType> StartSpinAnimation()
         {
@@ -84,8 +72,9 @@ namespace Hotbar.UI.View.Roulette
             await Task.WhenAll(tasks);
             tasks.Clear();
 
-            var rouletteGroupVec = new Vector3(rouletteGroup.rotation.x, rouletteGroup.rotation.y, -(angle + (randomFill * 360)));
-            tasks.Add(rouletteGroup.DORotate(rouletteGroupVec, 0.1f, RotateMode.LocalAxisAdd).SetLoops(loopCount, LoopType.Restart).SetEase(Ease.OutQuad, 2).AsyncWaitForCompletion());
+            var addAngle = randomFill * 360;
+            var rouletteGroupVec = new Vector3(rouletteGroup.rotation.x, rouletteGroup.rotation.y, -angle - addAngle);
+            tasks.Add(rouletteGroup.DORotate(rouletteGroupVec, 0.1f, RotateMode.LocalAxisAdd).SetLoops(loopCount, LoopType.Incremental).SetEase(Ease.OutQuad, 2).AsyncWaitForCompletion());
             await Task.WhenAll(tasks);
             tasks.Clear();
 
@@ -109,6 +98,17 @@ namespace Hotbar.UI.View.Roulette
             ResetInfo();
 
             return result;
+        }
+
+        private void SetFill()
+        {
+            currentPattern = ChoosePattern();
+            hardFill.fillAmount = currentPattern.Item1;
+            luckyFill.fillAmount = currentPattern.Item2;
+            normalFill.fillAmount = currentPattern.Item3;
+
+            luckyFill.transform.rotation = Quaternion.Euler(new Vector3(luckyFill.transform.rotation.x, luckyFill.transform.rotation.y, angle * luckyFill.fillAmount));
+            normalFill.transform.rotation = Quaternion.Euler(new Vector3(normalFill.transform.rotation.x, normalFill.transform.rotation.y, angle * luckyFill.fillAmount + angle * normalFill.fillAmount));
         }
 
         private void ResetInfo()
@@ -146,8 +146,6 @@ namespace Hotbar.UI.View.Roulette
                 return RouletteType.Normal;
             }
         }
-
-        #endregion
     }
 }
 
