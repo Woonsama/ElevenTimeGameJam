@@ -2378,6 +2378,7 @@ GameObject:
   - component: {fileID: 1368427417}
   - component: {fileID: 1368427416}
   - component: {fileID: 1368427415}
+  - component: {fileID: 1368427419}
   m_Layer: 5
   m_Name: UICreditView
   m_TagString: Untagged
@@ -2418,7 +2419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20f835999c95c144d92dd2c0cc269952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  closeButton: {fileID: 0}
+  closeButton: {fileID: 1304680793}
 --- !u!114 &1368427416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2480,6 +2481,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!225 &1368427419
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368427413}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1380288071
 GameObject:
   m_ObjectHideFlags: 0

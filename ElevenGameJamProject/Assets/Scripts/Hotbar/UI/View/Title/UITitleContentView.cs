@@ -18,6 +18,11 @@ namespace Hotbar.UI.View.Title
 
         private float tick;
 
+        private async void Awake()
+        {
+            await InitView();
+        }
+
         private void Update()
         {
             tick -= Time.deltaTime;
