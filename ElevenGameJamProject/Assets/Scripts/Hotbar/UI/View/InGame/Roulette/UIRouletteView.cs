@@ -52,7 +52,7 @@ namespace Hotbar.UI.View.Roulette
 
         #endregion
 
-        public override async Task InitView() => await StartSpin();
+        public override async Task InitView() { }
 
         public async Task<RouletteType> StartSpin() => await StartSpinAnimation();
 
