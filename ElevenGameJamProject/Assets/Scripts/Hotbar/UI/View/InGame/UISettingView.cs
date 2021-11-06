@@ -41,7 +41,7 @@ namespace Hotbar.UI.View
         {
             GetSettingData();
             Time.timeScale = 0;
-            closeButton.onClick?.AddListener(Close);
+            soundSlider.onValueChanged?.AddListener((value) => { soundVolume = value; });
         }
 
         #region Event
@@ -50,10 +50,12 @@ namespace Hotbar.UI.View
         {
             if(CheckClose() == true)
             {
+                Debug.Log("Close");
                 Close();
             }
             else
             {
+                Debug.Log("Open SavePopup");
                 savePopup.SetActive(true);
             }
         }
@@ -109,9 +111,11 @@ namespace Hotbar.UI.View
 
         private bool CheckClose()
         {
-            if (windowModeIndex == PlayerPrefs.GetInt("Window") &&
-                resolutionModeIndex == PlayerPrefs.GetInt("Resolution") &&
-                soundVolume == PlayerPrefs.GetFloat("Sound"))
+            var isSameWindowValueSame = windowModeIndex == PlayerPrefs.GetInt("Window");
+            var isSameResolutionValueSame = resolutionModeIndex == PlayerPrefs.GetInt("Resolution");
+            var isSoundVolumeSame = soundVolume == PlayerPrefs.GetFloat("Sound");
+
+            if ((isSameWindowValueSame == true) && (isSameResolutionValueSame == true) && (isSoundVolumeSame == true))
             {
                 return true;
             }
