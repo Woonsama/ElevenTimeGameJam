@@ -6,7 +6,7 @@ using UnityEngine;
 public class PenguinEvent : MonoBehaviour
 {
     public Animator PenguinAnimator;
-    bool isDead = false;
+    public bool isDead = false;
     bool isComplete = false;
 
     private void Start()
