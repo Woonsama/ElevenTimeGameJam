@@ -45,6 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewList:
   - value1: 0
-    value2: UIResultFailView
+    value2: {fileID: 4846432655635547752, guid: 16d435724a5e9214ab3a946680c1b3b3, type: 3}
   - value1: 1
-    value2: UIRouletteView
+    value2: {fileID: 4846432655635547752, guid: a5e9d6d62b6b9334cb6076c6074af971, type: 3}
+  - value1: 2
+    value2: {fileID: 389776568289328955, guid: e088cf9c834b23f44a20183245184978, type: 3}

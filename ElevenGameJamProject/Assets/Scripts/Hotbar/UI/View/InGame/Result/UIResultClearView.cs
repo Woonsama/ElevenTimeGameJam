@@ -10,57 +10,69 @@ namespace Hotbar.UI.View.Result
 {
     public class UIResultClearView : UIViewBase
     {
+        public Image lightImage;
         public Image backgroundImage;
-        public Image gameClaerIcon;
-        public Text scoreText;
-        public Text contentsText;
+        public Image gameClearIcon;
         public InputField nameInputField;
+        public Image scoreImage;
+        public Text scoreText;
+        public Image penguinImage;
+        public Image contentsImage;
         public Button replayButton;
-
-        Vector3 gameClearInitialPos;
-        Vector3 scoreInitilPos;
+        public Button backButton;
 
         /// <summary>
         /// 게임 클리어 결과창을 띄워줌
         /// </summary>
         /// <param name="replayAction">다시 시작 버튼 클릭 시 발생하는 이벤트</param>
         /// <returns></returns>
-        public async Task Show(UnityAction<string> replayAction)
+        public async Task Show(int score, UnityAction<string> replayAction, UnityAction backAction)
         {
-            await backgroundImage.DOFade(0, 0).AsyncWaitForCompletion();
-            await contentsText.DOFade(0, 0).AsyncWaitForCompletion();
+            scoreText.text = $"Score : {score}";
 
-            gameClearInitialPos = gameClaerIcon.transform.position;
-            gameClaerIcon.transform.position = new Vector2(Screen.width * 1.5f, gameClearInitialPos.y);
-
-            scoreInitilPos = scoreText.transform.position;
-            scoreText.transform.position = new Vector2(-Screen.width * 1.5f, gameClearInitialPos.y);
-
-            nameInputField.gameObject.SetActive(false);
-
-            replayButton.onClick?.RemoveAllListeners();
             replayButton.onClick?.AddListener(delegate 
             {
                 replayAction?.Invoke(nameInputField.text);
                 Close();
             });
-            replayButton.gameObject.SetActive(false);
+
+            backButton.onClick?.AddListener(delegate
+            {
+                backAction?.Invoke();
+                Close();
+            });
 
             var tasks = new List<Task>();
             tasks.Add(backgroundImage.DOFade(0.5f, 1.0f).AsyncWaitForCompletion());
             await Task.WhenAll(tasks);
             tasks.Clear();
 
-            tasks.Add(gameClaerIcon.transform.DOMove(gameClearInitialPos, 1.2f).AsyncWaitForCompletion());
-            tasks.Add(scoreText.transform.DOMove(scoreInitilPos, 1.2f).AsyncWaitForCompletion());
+            tasks.Add(lightImage.DOFade(1, 0.7f).AsyncWaitForCompletion());
+            tasks.Add(gameClearIcon.DOFade(1, 0.7f).AsyncWaitForCompletion());
+            tasks.Add(contentsImage.DOFade(1, 0.7f).AsyncWaitForCompletion());
+            tasks.Add(penguinImage.DOFade(1, 0.7f).AsyncWaitForCompletion());
+            tasks.Add(scoreImage.DOFade(1, 0.7f).AsyncWaitForCompletion());
+            tasks.Add(scoreText.DOFade(1, 0.7f).AsyncWaitForCompletion());
+            tasks.Add(replayButton.image.DOFade(1, 0.7f).AsyncWaitForCompletion());
+            tasks.Add(backButton.image.DOFade(1, 0.7f).AsyncWaitForCompletion());
+            tasks.Add(nameInputField.image.DOFade(1, 0.7f).AsyncWaitForCompletion());
+            tasks.Add(nameInputField.placeholder.DOFade(1, 0.7f).AsyncWaitForCompletion());
+
+
             await Task.WhenAll(tasks);
             tasks.Clear();
+            tasks.Add(lightImage.transform.DOScale(2.2f, 0.3f).SetLoops(2, LoopType.Yoyo).AsyncWaitForCompletion());
+            tasks.Add(gameClearIcon.transform.DOScale(1.1f, 0.3f).SetLoops(2, LoopType.Yoyo).AsyncWaitForCompletion());
+            tasks.Add(contentsImage.transform.DOScale(1.1f, 0.3f).SetLoops(2, LoopType.Yoyo).AsyncWaitForCompletion());
+            tasks.Add(replayButton.transform.DOScale(1.1f, 0.3f).SetLoops(2, LoopType.Yoyo).AsyncWaitForCompletion());
+            tasks.Add(backButton.transform.DOScale(1.1f, 0.3f).SetLoops(2, LoopType.Yoyo).AsyncWaitForCompletion());
+            tasks.Add(scoreImage.transform.DOScale(1.1f, 0.3f).SetLoops(2, LoopType.Yoyo).AsyncWaitForCompletion());
+            tasks.Add(scoreText.transform.DOScale(1.1f, 0.3f).SetLoops(2, LoopType.Yoyo).AsyncWaitForCompletion());
+            tasks.Add(nameInputField.transform.DOScale(1.1f, 0.3f).SetLoops(2, LoopType.Yoyo).AsyncWaitForCompletion());
+            tasks.Add(nameInputField.placeholder.transform.DOScale(1.1f, 0.3f).SetLoops(2, LoopType.Yoyo).AsyncWaitForCompletion());
 
-            tasks.Add(contentsText.DOFade(1, 1.2f).AsyncWaitForCompletion());
             await Task.WhenAll(tasks);
-
-            nameInputField.gameObject.SetActive(true);
-            replayButton.gameObject.SetActive(true);
+            tasks.Clear();
         }
     }
 }
