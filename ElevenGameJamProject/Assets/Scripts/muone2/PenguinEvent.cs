@@ -1,3 +1,4 @@
+using eleven.game;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,7 +17,9 @@ public class PenguinEvent : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Item"))
         {
-            score = score + 10;
+            Item item = collision.GetComponent<Item>();
+
+            score = score + item?.Score ?? 0;
             collision.gameObject.SetActive(false);
         }
 
