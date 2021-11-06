@@ -69,6 +69,7 @@ namespace eleven.game
         GameObject home;
 
         public int homeDrawIndex;
+        int homeIndex = 0;
 
         bool init = false;
 
@@ -135,19 +136,29 @@ namespace eleven.game
                 int nextHeightY = UnityEngine.Random.Range(possibleMinY, possibleMaxY + 1);
 
                 //y축 랜덤 limit 계산
-                y = Mathf.Clamp(y + nextHeightY, 0, MaxDrawBound.y);                
+                y = Mathf.Clamp(y + nextHeightY, 0, MaxDrawBound.y);
 
                 //3.3 다음 땅 그리기                               
                 int drawXCnt = drawXPossibleCount.GetRandomOne();
+
+                //3.31  Home Index 계산
+                if ((x + drawXCnt) >= homeDrawIndex && homeIndex == 0)
+                {
+                    //이곳에 배치할 예정
+                    homeIndex = x + (drawXCnt / 2);
+                }
+
                 x = DrawGround(x, y, drawXCnt);
                 tileHeight.AddRange(Enumerable.Repeat(y == 0 ? 1 : y, drawXCnt));
+
+
             }
         }
 
         void InitHome()
         {
-            int xPos = homeDrawIndex;
-            int yPos = tileHeight[homeDrawIndex] + 1;
+            int xPos = homeIndex;
+            int yPos = tileHeight[homeIndex] + 1;
 
             GameObject Home = Instantiate(home, objectTransform);
             Home.name = $"Home_{xPos}_{yPos}";
@@ -160,7 +171,7 @@ namespace eleven.game
             int tunaCount = TunaCount;
             //땅 위.. 또는 점프로 획득 가능한 곳에 배치
             //일단 배치할 X 좌표를 구함
-            int[] xPoses = Enumerable.Range(possibleItemBatchStart, homeDrawIndex - possibleItemBatchStart)
+            int[] xPoses = Enumerable.Range(possibleItemBatchStart, homeIndex - possibleItemBatchStart)
                                         .OrderBy(v => UnityEngine.Random.value).Take(squidCount + tunaCount).ToArray();
 
             for (int x = 0; x < xPoses.Length; x++)
@@ -200,7 +211,7 @@ namespace eleven.game
 
             //땅 위.. 또는 점프로 획득 가능한 곳에 배치
             //일단 배치할 X 좌표를 구함
-            int[] xPoses = Enumerable.Range(possibleItemBatchStart, homeDrawIndex - possibleItemBatchStart)                                        
+            int[] xPoses = Enumerable.Range(possibleItemBatchStart, homeIndex - possibleItemBatchStart)                                        
                                         .OrderBy(v => UnityEngine.Random.value)
                                         .Take(bananaCount + sealionCount + 
                                         ObstaclePuddle1Count + ObstaclePuddle2Count + ObstaclePuddle3Count)

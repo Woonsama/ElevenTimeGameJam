@@ -1671,9 +1671,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 33f41525c99276940a8b25ceb78ef84f, type: 2}
   - {fileID: 11400000, guid: ddd6bbd287c8b28458cde654b56503a1, type: 2}
   beginGroundCount:
-    Min: 7
+    Min: 8
     Max: 12
-  MaxDrawBound: {x: 70, y: 4}
+  MaxDrawBound: {x: 80, y: 4}
   holeXPossibleCount:
     Min: 1
     Max: 3
@@ -1681,7 +1681,7 @@ MonoBehaviour:
     Min: -2
     Max: 2
   drawXPossibleCount:
-    Min: 7
+    Min: 8
     Max: 12
   ItemSquid: {fileID: 1619638093504996450, guid: 0441931e62e34a94d87e2cdcd0f08ca7, type: 3}
   ItemTuna: {fileID: 8932968688535452570, guid: f2af542d2565b374b8dd524bc991a1bf, type: 3}
@@ -1705,7 +1705,7 @@ MonoBehaviour:
   Penguin: {fileID: 7312248871536219140, guid: 1c848f3849ce5a84889a971d9a01f709, type: 3}
   DeadZone: {fileID: 3675776956872710469, guid: 7692474c60bc42f4a91de7d87de93fe2, type: 3}
   home: {fileID: 1638066388211637311, guid: 97fad9fb9117a6247860927f95380d98, type: 3}
-  homeDrawIndex: 50
+  homeDrawIndex: 60
 --- !u!114 &1944714634
 MonoBehaviour:
   m_ObjectHideFlags: 0
