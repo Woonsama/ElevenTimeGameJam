@@ -18,6 +18,6 @@ namespace Hotbar.UI
         }
 
         //Temp
-        public void Close() => Destroy(gameObject);
+        public virtual void Close() => Destroy(gameObject);
     }
 }

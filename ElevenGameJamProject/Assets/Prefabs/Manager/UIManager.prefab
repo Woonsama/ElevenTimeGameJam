@@ -50,3 +50,5 @@ MonoBehaviour:
     value2: {fileID: 4846432655635547752, guid: a5e9d6d62b6b9334cb6076c6074af971, type: 3}
   - value1: 2
     value2: {fileID: 389776568289328955, guid: e088cf9c834b23f44a20183245184978, type: 3}
+  - value1: 3
+    value2: {fileID: 389776568289328955, guid: 3866d6e3f2c8c1847ae346421da724a1, type: 3}

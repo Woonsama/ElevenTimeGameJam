@@ -16,6 +16,7 @@ namespace Hotbar.UI
             ClearResult,
             FailResult,
             Roulette,
+            InGameSetting,
         }
 
         public async Task<UIViewBase> OpenView(ViewType viewType)
