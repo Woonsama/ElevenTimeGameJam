@@ -32,6 +32,7 @@ namespace Hotbar.UI.View.Result
 
             replayButton.onClick?.AddListener(delegate 
             {
+                SavePlayerInfo(score);
                 replayAction?.Invoke(nameInputField.text);
                 Close();
             });
@@ -73,6 +74,44 @@ namespace Hotbar.UI.View.Result
 
             await Task.WhenAll(tasks);
             tasks.Clear();
+        }
+
+        private void SavePlayerInfo(int score)
+        {
+            var playerNameInfoArray = PlayerPrefsX.GetStringArray("PlayerNameInfo");
+            var playerScoreInfoArray = PlayerPrefsX.GetIntArray("PlayerScoreInfo");
+
+            
+            //Add Name
+            var playerNameInfoList = new List<string>();
+            for(int i = 0; i < playerNameInfoArray.Length; i++)
+            {
+                playerNameInfoList.Add(playerNameInfoArray[i]);
+            }
+
+            if(nameInputField.text == string.Empty)
+            {
+                playerNameInfoList.Add("Guest" + Random.Range(0, 100000));
+            }
+            else
+            {
+                playerNameInfoList.Add(nameInputField.text);
+            }
+
+            playerNameInfoArray = playerNameInfoList.ToArray();
+            PlayerPrefsX.SetStringArray("PlayerNameInfo", playerNameInfoArray);
+
+            //Add Score
+            var playerScoreInfoList = new List<int>();
+            for (int i = 0; i < playerScoreInfoArray.Length; i++)
+            {
+                playerScoreInfoList.Add(playerScoreInfoArray[i]);
+            }
+
+            playerScoreInfoList.Add(score);
+
+            playerScoreInfoArray = playerScoreInfoList.ToArray();
+            PlayerPrefsX.SetIntArray("PlayerScoreInfo", playerScoreInfoArray);
         }
     }
 }
