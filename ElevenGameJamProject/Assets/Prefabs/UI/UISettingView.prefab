@@ -879,7 +879,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6477386043513364674}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1668109437824526469}
+        m_TargetAssemblyTypeName: Hotbar.UI.View.UISettingView, Assembly-CSharp
+        m_MethodName: OnClickNotSave
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2923145223194614658
 GameObject:
   m_ObjectHideFlags: 0
@@ -1111,7 +1123,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8240207887821462462}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1668109437824526469}
+        m_TargetAssemblyTypeName: Hotbar.UI.View.UISettingView, Assembly-CSharp
+        m_MethodName: OnClickSave
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3189615238317263655
 GameObject:
   m_ObjectHideFlags: 0
