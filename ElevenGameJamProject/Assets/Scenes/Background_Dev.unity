@@ -958,11 +958,11 @@ GameObject:
   - component: {fileID: 1075159024}
   m_Layer: 0
   m_Name: TestPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1075159020
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1002,7 +1002,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1550509893
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1022,7 +1022,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1075159019}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -7.42, y: -0.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1087,6 +1087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a12c342515ceab748ad9943762be0cb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpPower: 7
 --- !u!1 &1142948575
 GameObject:
   m_ObjectHideFlags: 0
@@ -1229,7 +1230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Scroll: 1
-  Speed: 5
+  Speed: 10
 --- !u!114 &1193747523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1251,9 +1252,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 33f41525c99276940a8b25ceb78ef84f, type: 2}
   - {fileID: 11400000, guid: ddd6bbd287c8b28458cde654b56503a1, type: 2}
   beginGroundCount:
-    Min: 12
-    Max: 20
-  MaxDrawBound: {x: 200, y: 4}
+    Min: 24
+    Max: 40
+  MaxDrawBound: {x: 300, y: 4}
   holeXPossibleCount:
     Min: 1
     Max: 3
@@ -1261,8 +1262,8 @@ MonoBehaviour:
     Min: -2
     Max: 2
   drawXPossibleCount:
-    Min: 20
-    Max: 25
+    Min: 25
+    Max: 40
   ItemSquid: {fileID: 1619638093504996450, guid: 0441931e62e34a94d87e2cdcd0f08ca7, type: 3}
   ItemTuna: {fileID: 8932968688535452570, guid: f2af542d2565b374b8dd524bc991a1bf, type: 3}
   SquidCount: 10
@@ -1271,7 +1272,7 @@ MonoBehaviour:
     Min: 1
     Max: 3
   ObstaclePrefab: []
-  possibleItemBatchStart: 15
+  possibleItemBatchStart: 20
   objectTransform: {fileID: 723778370}
   ObstacleBanana: {fileID: 5645498766660484559, guid: 9b9d72691791b5442b1f42ec18166997, type: 3}
   ObstacleSealion: {fileID: 4407393023820611546, guid: 31966317d92fd70449d4f1e97ef9b610, type: 3}
