@@ -35,7 +35,7 @@ public class PenguinEvent : MonoBehaviour
             Muone2SoundManager.instance.soundGetItemOffOn();
         }
 
-        if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("DeadZone"))
+        else if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("DeadZone"))
         {
             PenguinAnimator.SetBool("isDie", true );  //실제론 메니저에서 죽음을 온하는 함수를 받아와야 함. 게임의 다른 것들도 멈춰야함.
             Muone2SoundManager.instance.soundDieOffOn();
@@ -44,7 +44,7 @@ public class PenguinEvent : MonoBehaviour
             await InGameManager.Instance.OpenGameFailView();
         }
 
-        if (collision.gameObject.CompareTag("Home"))
+        else if (collision.gameObject.CompareTag("Home"))
         {
             PenguinAnimator.SetBool("isGoal", true);   //실제론 메니저에서 엔딩을 온하는 함수를 받아와야 함. 게임의 다른 것들도 멈춰야함.
             Debug.Log("Good Ending on");
