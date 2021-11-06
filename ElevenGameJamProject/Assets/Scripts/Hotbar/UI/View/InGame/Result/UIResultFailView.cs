@@ -12,48 +12,54 @@ namespace Hotbar.UI.View.Result
     {
         public Image backgroundImage;
         public Image gameOverIcon;
+        public Image scoreImage;
         public Text scoreText;
-        public Text contentsText;
+        public Image penguinImage;
+        public Image contentsImage;
         public Button replayButton;
-
-        public Transform gameOverIconInitialTransform;
-        public Transform scoreTextInitialTransform;
+        public Button backButton;
 
         /// <summary>
         /// 실패 결과창을 띄워줌
         /// </summary>
         /// <param name="replayAction">다시 시작 버튼 클릭 시 발생하는 이벤트</param>
+        /// <param name="backAction">뒤로 가기 버튼 클릭 시 발생하는 이벤트</param>
         /// <returns></returns>
-        public async Task Show(UnityAction replayAction)
+        public async Task Show(UnityAction replayAction, UnityAction backAction)
         {
-            await backgroundImage.DOFade(0, 0).AsyncWaitForCompletion();
-            await contentsText.DOFade(0, 0).AsyncWaitForCompletion();
-
-            gameOverIcon.transform.position = new Vector2(Screen.width * 1.5f, gameOverIconInitialTransform.position.y);
-            scoreText.transform.position = new Vector2(-Screen.width * 1.5f, scoreTextInitialTransform.position.y);
-
-            replayButton.onClick?.RemoveAllListeners();
             replayButton.onClick?.AddListener(delegate
             {
                 replayAction?.Invoke();
                 Close();
             });
-            replayButton.gameObject.SetActive(false);
+
+            backButton.onClick?.AddListener(delegate
+            {
+                backAction?.Invoke();
+                Close();
+            });
 
             var tasks = new List<Task>();
             tasks.Add(backgroundImage.DOFade(0.5f, 1.0f).AsyncWaitForCompletion());
             await Task.WhenAll(tasks);
             tasks.Clear();
 
-            tasks.Add(gameOverIcon.transform.DOMove(gameOverIconInitialTransform.position, 1.2f).AsyncWaitForCompletion());
-            tasks.Add(scoreText.transform.DOMove(scoreTextInitialTransform.position, 1.2f).AsyncWaitForCompletion());
+            tasks.Add(gameOverIcon.DOFade(1, 0.7f).AsyncWaitForCompletion());
+            tasks.Add(contentsImage.DOFade(1, 0.7f).AsyncWaitForCompletion());
+            tasks.Add(penguinImage.DOFade(1, 0.7f).AsyncWaitForCompletion());
+            tasks.Add(scoreImage.DOFade(1, 0.7f).AsyncWaitForCompletion());
+            tasks.Add(scoreText.DOFade(1, 0.7f).AsyncWaitForCompletion());
+            tasks.Add(replayButton.image.DOFade(1, 0.7f).AsyncWaitForCompletion());
+            tasks.Add(backButton.image.DOFade(1, 0.7f).AsyncWaitForCompletion());
             await Task.WhenAll(tasks);
             tasks.Clear();
 
-            tasks.Add(contentsText.DOFade(1, 1.2f).AsyncWaitForCompletion());
+            tasks.Add(gameOverIcon.transform.DOScale(1.1f, 0.3f).SetLoops(2, LoopType.Yoyo).AsyncWaitForCompletion());
+            tasks.Add(contentsImage.transform.DOScale(1.1f, 0.3f).SetLoops(2, LoopType.Yoyo).AsyncWaitForCompletion());
+            tasks.Add(replayButton.transform.DOScale(1.1f, 0.3f).SetLoops(2, LoopType.Yoyo).AsyncWaitForCompletion());
+            tasks.Add(backButton.transform.DOScale(1.1f, 0.3f).SetLoops(2, LoopType.Yoyo).AsyncWaitForCompletion());
             await Task.WhenAll(tasks);
-
-            replayButton.gameObject.SetActive(true);
+            tasks.Clear();
         }
     }
 }

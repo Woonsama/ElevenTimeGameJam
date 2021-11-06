@@ -14,8 +14,17 @@ public class InGameManager : SingletonMonoBase<InGameManager>
     {
         await uiHeaderView.InitView();
 
-        var view = await UIManager.Instance.OpenView(UIManager.ViewType.Roulette);
-        view.Close();
+        var view = await UIManager.Instance.OpenView(UIManager.ViewType.FailResult);
+        await ((UIResultFailView)view).Show(() =>
+        {
+            Debug.Log("Replay Button Click");
+        }, () =>
+        {
+            Debug.Log("Back Button Click");
+        });
+
+        //var view = await UIManager.Instance.OpenView(UIManager.ViewType.Roulette);
+        //view.Close();
 
         //TimeManager.Instance.StartTimer(11, async () =>
         //{
