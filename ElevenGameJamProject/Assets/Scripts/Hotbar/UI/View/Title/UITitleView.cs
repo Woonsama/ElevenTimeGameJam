@@ -17,6 +17,11 @@ namespace Hotbar.UI.View.Title
 
         public override async Task InitView()
         {
+             uiTitleSynopsisView.gameObject.SetActive(false);
+            uiTitleRankingView.gameObject.SetActive(false);
+            uiTitleSettingView.gameObject.SetActive(false);
+            uiTitleCreditView.gameObject.SetActive(false);
+
             await uiTitleContentView.InitView();
         }
 
