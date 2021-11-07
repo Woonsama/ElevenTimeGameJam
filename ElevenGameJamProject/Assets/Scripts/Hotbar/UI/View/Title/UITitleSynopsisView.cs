@@ -29,6 +29,8 @@ namespace Hotbar.UI.View.Title
             skipButton.onClick?.AddListener(OnClickSkipButton);
 
             gameObject.SetActive(true);
+
+            skipButton.transform.DOMoveX(skipButton.transform.position.x + 30, 0.7f).SetLoops(-1, LoopType.Yoyo);
         }
 
         public override async Task UpdateView()
