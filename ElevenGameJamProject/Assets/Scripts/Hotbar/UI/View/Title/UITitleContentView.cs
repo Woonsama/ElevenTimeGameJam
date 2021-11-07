@@ -73,9 +73,9 @@ namespace Hotbar.UI.View.Title
             tasks.Add(settingButton.image.DOFade(1, 1.2f).AsyncWaitForCompletion());
             tasks.Add(creditButton.image.DOFade(1, 1.2f).AsyncWaitForCompletion());
             tasks.Add(exitButton.image.DOFade(1, 1.2f).AsyncWaitForCompletion());
-            tasks.Add(titleIcon.transform.DOLocalMoveY(Screen.height * 0.26f, 1.2f).AsyncWaitForCompletion());
-            tasks.Add(exitButton.transform.DOLocalMoveX(-Screen.width + Screen.width * 0.52f, 1.2f).AsyncWaitForCompletion());
-            tasks.Add(rightButtonGroup.transform.DOLocalMoveX(Screen.width - Screen.width * 0.63f, 1.2f).AsyncWaitForCompletion());
+            tasks.Add(titleIcon.transform.DOLocalMoveY(280, 1.2f).AsyncWaitForCompletion());
+            tasks.Add(exitButton.transform.DOLocalMoveX(-900, 1.2f).AsyncWaitForCompletion());
+            tasks.Add(rightButtonGroup.transform.DOLocalMoveX(650, 1.2f).AsyncWaitForCompletion());
             await Task.WhenAll(tasks);
             tasks.Clear();
 
