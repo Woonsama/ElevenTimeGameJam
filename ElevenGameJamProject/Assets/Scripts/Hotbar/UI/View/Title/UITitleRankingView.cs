@@ -77,8 +77,16 @@ namespace Hotbar.UI.View.Title
 
             for (int i = 0; i < 20; i++)
             {
-                names[i].text = playerNameInfoArray[i];
-                scores[i].text = playerScoreInfoArray[i].ToString();
+                if(i < playerNameInfoArray.Length)
+                {
+                    names[i].text = playerNameInfoArray[i];
+                    scores[i].text = playerScoreInfoArray[i].ToString();
+                }
+                else
+                {
+                    names[i].text = "비어있음";
+                    scores[i].text = "0";
+                }
             }
         }
 
