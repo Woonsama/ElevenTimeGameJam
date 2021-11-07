@@ -19,6 +19,11 @@ public class Muone2SoundManager : MonoBehaviour
 
     private void Start()
     {
+        UpdateVolume();
+    }
+
+    public void UpdateVolume()
+    {
         float soundVolume = PlayerPrefs.GetFloat("Sound");
         SetVolume(soundVolume);
     }

@@ -67,6 +67,9 @@ namespace Hotbar.UI.View
         public override void Close()
         {
             Time.timeScale = 1;
+
+            //저장 안하는 경우도 있으니 업데이트 한다.
+            Muone2SoundManager.instance.UpdateVolume();
             base.Close();
         }
 
