@@ -76,7 +76,7 @@ namespace Hotbar.UI.View.Roulette
             tasks.Clear();
 
             var addAngle = randomFill * 360;
-            var rouletteGroupVec = new Vector3(rouletteGroup.rotation.x, rouletteGroup.rotation.y, -angle - addAngle);
+            var rouletteGroupVec = new Vector3(rouletteGroup.rotation.x, rouletteGroup.rotation.y, angle + addAngle);
             tasks.Add(rouletteGroup.DORotate(rouletteGroupVec, 0.1f, RotateMode.LocalAxisAdd).SetLoops(loopCount, LoopType.Incremental).SetEase(Ease.OutQuad, 2).AsyncWaitForCompletion());
             await Task.WhenAll(tasks);
             tasks.Clear();
@@ -100,7 +100,7 @@ namespace Hotbar.UI.View.Roulette
             await Task.WhenAll(tasks);
             tasks.Clear();
 
-            ResetInfo();
+            await ResetInfo();
 
             return result;
         }
@@ -109,18 +109,19 @@ namespace Hotbar.UI.View.Roulette
         {
             currentPattern = ChoosePattern();
             hardFill.fillAmount = currentPattern.Item1;
-            luckyFill.fillAmount = currentPattern.Item2;
-            normalFill.fillAmount = currentPattern.Item3;
 
-            luckyFill.transform.rotation = Quaternion.Euler(new Vector3(luckyFill.transform.rotation.x, luckyFill.transform.rotation.y, angle * luckyFill.fillAmount));
-            normalFill.transform.rotation = Quaternion.Euler(new Vector3(normalFill.transform.rotation.x, normalFill.transform.rotation.y, angle * luckyFill.fillAmount + angle * normalFill.fillAmount));
+            normalFill.fillAmount = currentPattern.Item2;
+            luckyFill.fillAmount = currentPattern.Item3;
+
+            normalFill.transform.rotation = Quaternion.Euler(new Vector3(normalFill.transform.rotation.x, normalFill.transform.rotation.y, -(angle * hardFill.fillAmount)));
+            luckyFill.transform.rotation = Quaternion.Euler(new Vector3(luckyFill.transform.rotation.x, luckyFill.transform.rotation.y, -(angle * hardFill.fillAmount + angle * normalFill.fillAmount)));
         }
 
-        private void ResetInfo()
+        private async Task ResetInfo()
         {
             roulette.transform.position = rouletteStartTransform.position;
-            backgroundImage.DOFade(0f, 0.7f);
-            resultImage.transform.DOScale(0, 0);
+            await backgroundImage.DOFade(0f, 0.7f).AsyncWaitForCompletion();
+            await resultImage.transform.DOScale(0, 0).AsyncWaitForCompletion();
             rouletteLight.gameObject.SetActive(false);
         }
 
@@ -140,16 +141,16 @@ namespace Hotbar.UI.View.Roulette
 
             else if (fill > currentPattern.Item1 && fill <= currentPattern.Item1 + currentPattern.Item2)
             {
-                resultImage.sprite = luckySprite;
+                resultImage.sprite = normalSprite;
                 resultImage.SetNativeSize();
-                return RouletteType.Lucky;
+                return RouletteType.Normal;
             }
 
             else
             {
-                resultImage.sprite = normalSprite;
+                resultImage.sprite = luckySprite;
                 resultImage.SetNativeSize();
-                return RouletteType.Normal;
+                return RouletteType.Lucky;
             }
         }
     }

@@ -69,7 +69,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5976697790710845854}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 241.2}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -109,9 +109,9 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0.34
+  m_FillAmount: 0.33
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 2
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &389776567518560760
@@ -308,6 +308,18 @@ MonoBehaviour:
   - value1: 0.33
     value2: 0.33
     value3: 0.34
+  - value1: 0.1
+    value2: 0.7
+    value3: 0.2
+  - value1: 0.2
+    value2: 0.3
+    value3: 0.5
+  - value1: 0.6
+    value2: 0.3
+    value3: 0.1
+  - value1: 0.85
+    value2: 0.1
+    value3: 0.05
   rouletteStartTransform: {fileID: 1576936895278144533}
   roulette: {fileID: 8906640534927094007}
   rouletteGroup: {fileID: 5976697790710845854}
@@ -629,8 +641,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4611324255198103721}
-  - {fileID: 3988976843418958840}
   - {fileID: 263144661146458394}
+  - {fileID: 3988976843418958840}
   m_Father: {fileID: 8906640534927094007}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -664,13 +676,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3988976843418958841}
-  m_LocalRotation: {x: 0, y: 0, z: 0.86074203, w: 0.50904137}
+  m_LocalRotation: {x: 0, y: 0, z: 0.87672675, w: 0.4809888}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5976697790710845854}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 118.8}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 122.5}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -709,9 +721,9 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0.33
+  m_FillAmount: 0.34
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 2
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &4611324255198103720
@@ -786,7 +798,7 @@ MonoBehaviour:
   m_FillMethod: 4
   m_FillAmount: 0.33
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 2
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &7394450450938124287
