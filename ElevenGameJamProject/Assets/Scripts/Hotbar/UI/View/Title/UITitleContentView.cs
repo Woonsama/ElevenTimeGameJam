@@ -22,7 +22,7 @@ namespace Hotbar.UI.View.Title
 
         private bool animationInitEnded = false;
 
-        private async void Awake()
+        private async void Start()
         {
             await InitView();
         }
@@ -54,6 +54,7 @@ namespace Hotbar.UI.View.Title
 
         public override async Task InitView()
         {
+            await UniTask.NextFrame();
             AddButtonEvent();
 
             var tasks = new List<Task>();
