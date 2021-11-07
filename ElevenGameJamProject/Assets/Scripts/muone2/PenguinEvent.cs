@@ -2,6 +2,7 @@ using eleven.game;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PenguinEvent : MonoBehaviour
 {
@@ -33,6 +34,8 @@ public class PenguinEvent : MonoBehaviour
 
         else if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("DeadZone"))
         {
+            Camera.main.DOShakeRotation(0.8f, 3, 20, 2.0f);
+
             PenguinAnimator.SetBool("isDie", true );  //실제론 메니저에서 죽음을 온하는 함수를 받아와야 함. 게임의 다른 것들도 멈춰야함.
             Muone2SoundManager.instance.soundDieOffOn();
             isDead = true;
