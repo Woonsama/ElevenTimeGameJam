@@ -14,12 +14,17 @@ namespace Hotbar.UI.View
         public Button closeButton;
 
         [Header("Window Mode")]
+        public GameObject windowMode;
         public List<string> windowModeList;
         public Text windowModeText;
 
         [Header("Resolution Mode")]
+        public GameObject resolutionMode;
         public List<string> resolutionModeList;
         public Text resolutionModeText;
+
+        [Header("Sound Setting")]
+        public GameObject soundSetting;
 
         [Header("Sonud Slider")]
         public Slider soundSlider;
@@ -46,6 +51,12 @@ namespace Hotbar.UI.View
                 soundVolume = value;
                 Muone2SoundManager.instance.SetVolume(soundVolume);
             });
+
+#if UNITY_ANDROID
+            windowMode.SetActive(false);
+            resolutionMode.SetActive(false);
+            soundSetting.transform.localPosition = Vector3.zero;
+#endif
         }
 
         #region Event

@@ -266,14 +266,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   closeButton: {fileID: 1850321583470910676}
+  windowMode: {fileID: 6951996958117987019}
   windowModeList:
   - "\uC804\uCCB4 \uD654\uBA74"
   - "\uCC3D\uBAA8\uB4DC"
   windowModeText: {fileID: 7718209447730933147}
+  resolutionMode: {fileID: 1165060678347128143}
   resolutionModeList:
   - 1920x1080
   - 1280x720
   resolutionModeText: {fileID: 6211242949985560156}
+  soundSetting: {fileID: 2936838547635227805}
   soundSlider: {fileID: 5329555089263361965}
   savePopup: {fileID: 9070465498948861947}
 --- !u!1 &466975540252887762
@@ -712,7 +715,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dfcb078557a0474ca9960a4ad65b476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleUpSize: 1.05
 --- !u!1 &2673466335138075860
 GameObject:
   m_ObjectHideFlags: 0
@@ -1402,7 +1404,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dfcb078557a0474ca9960a4ad65b476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleUpSize: 1.05
 --- !u!1 &4409115738015722506
 GameObject:
   m_ObjectHideFlags: 0
@@ -1637,7 +1638,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dfcb078557a0474ca9960a4ad65b476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleUpSize: 1.05
 --- !u!1 &5141851334798689962
 GameObject:
   m_ObjectHideFlags: 0
@@ -1937,7 +1937,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dfcb078557a0474ca9960a4ad65b476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleUpSize: 1.05
 --- !u!1 &5480518230463901944
 GameObject:
   m_ObjectHideFlags: 0
@@ -2469,7 +2468,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dfcb078557a0474ca9960a4ad65b476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleUpSize: 1.05
 --- !u!1 &8120184011476680006
 GameObject:
   m_ObjectHideFlags: 0
