@@ -75,7 +75,13 @@ namespace Hotbar.UI.View.Title
 
         private async void OnClickRankingButton() => await TitleManager.Instance.uiTitleView.uiTitleRankingView.InitView();
 
-        private async void OnClickSettingButton() => await TitleManager.Instance.uiTitleView.uiTitleSettingView.InitView();
+        private async void OnClickSettingButton()             
+        {
+            UISettingView SettingView = Instantiate(TitleManager.Instance.uiTitleView.uiTitleSettingViewPrefab, transform);
+
+            await SettingView.InitView();
+        }
+
 
         private async void OnClickCreditButton() => await TitleManager.Instance.uiTitleView.uiTitleCreditView.InitView();
 

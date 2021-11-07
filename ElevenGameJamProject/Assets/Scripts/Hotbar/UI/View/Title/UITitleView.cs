@@ -11,7 +11,7 @@ namespace Hotbar.UI.View.Title
         [Header("UITitleContentView")] public UITitleContentView uiTitleContentView;
         [Header("UITitleContentView")] public UITitleSynopsisView uiTitleSynopsisView;
         [Header("UITitleContentView")] public UITitleRankingView uiTitleRankingView;
-        [Header("UITitleContentView")] public UITitleSettingView uiTitleSettingView;
+        [Header("UITitleContentView")] public UISettingView uiTitleSettingViewPrefab;
         [Header("UITitleContentView")] public UITilteCreditView uiTitleCreditView;
 
 
@@ -19,7 +19,6 @@ namespace Hotbar.UI.View.Title
         {
              uiTitleSynopsisView.gameObject.SetActive(false);
             uiTitleRankingView.gameObject.SetActive(false);
-            uiTitleSettingView.gameObject.SetActive(false);
             uiTitleCreditView.gameObject.SetActive(false);
 
             await uiTitleContentView.InitView();

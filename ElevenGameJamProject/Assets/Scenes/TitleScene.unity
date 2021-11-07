@@ -8275,7 +8275,7 @@ MonoBehaviour:
   uiTitleContentView: {fileID: 519777273}
   uiTitleSynopsisView: {fileID: 1914386754}
   uiTitleRankingView: {fileID: 160701005}
-  uiTitleSettingView: {fileID: 1795780225}
+  uiTitleSettingViewPrefab: {fileID: 1668109437824526469, guid: 3866d6e3f2c8c1847ae346421da724a1, type: 3}
   uiTitleCreditView: {fileID: 1368427415}
 --- !u!1 &1975987306
 GameObject:
