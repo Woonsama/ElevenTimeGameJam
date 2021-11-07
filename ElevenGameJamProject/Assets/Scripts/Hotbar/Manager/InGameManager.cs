@@ -37,6 +37,8 @@ public class InGameManager : SingletonMonoBase<InGameManager>
     {
         await uiHeaderView.InitView();
 
+        Muone2SoundManager.instance.soundBGMOffOn();
+
         ////·ê·¿ ÆË¾÷ ¶ç¿ì±â
         var rouletteView = await UIManager.Instance.OpenView(UIManager.ViewType.Roulette);
         var mode = await((UIRouletteView)rouletteView).StartSpin();

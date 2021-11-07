@@ -13,10 +13,6 @@ public class PenguinEvent : MonoBehaviour
     {
         PenguinAnimator = GetComponent<Animator>();
     }
-    void OnEnable()
-    {
-        Muone2SoundManager.instance.soundBGMOffOn();
-    }
 
     private async void OnTriggerEnter2D(Collider2D collision)
     {
