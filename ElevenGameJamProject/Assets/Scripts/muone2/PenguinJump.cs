@@ -24,24 +24,28 @@ public class PenguinJump : MonoBehaviour
     {
         if(!penguinEvent.isDead)
         {
-            if (Input.GetButtonDown("Jump") && JumpCount < 2)
+            if(JumpCount < 2)
             {
-                rigid.velocity = new Vector2(rigid.velocity.x, Vector2.up.y * jumpPower);
-                JumpCount++;
-                Debug.Log(JumpCount);
-                Muone2SoundManager.instance.soundJumpOffOn();
-            }
-            else if (Input.touchCount > 0)
-            {
-                Touch touch = Input.GetTouch(0);
-                if (touch.phase == TouchPhase.Began)
+                if (Input.GetButtonDown("Jump"))
                 {
                     rigid.velocity = new Vector2(rigid.velocity.x, Vector2.up.y * jumpPower);
                     JumpCount++;
                     Debug.Log(JumpCount);
                     Muone2SoundManager.instance.soundJumpOffOn();
                 }
+                else if (Input.touchCount > 0)
+                {
+                    Touch touch = Input.GetTouch(0);
+                    if (touch.phase == TouchPhase.Began)
+                    {
+                        rigid.velocity = new Vector2(rigid.velocity.x, Vector2.up.y * jumpPower);
+                        JumpCount++;
+                        Debug.Log(JumpCount);
+                        Muone2SoundManager.instance.soundJumpOffOn();
+                    }
+                }
             }
+
         }
     }
 
