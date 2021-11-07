@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7454247496317900712}
   - component: {fileID: 7454247496317900715}
   - component: {fileID: 7454247496317900714}
+  - component: {fileID: 4659842255192272572}
+  - component: {fileID: 8399788069990236143}
   m_Layer: 5
   m_Name: RankingButton
   m_TagString: Untagged
@@ -120,6 +122,32 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4659842255192272572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7454247496317900716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
+--- !u!114 &8399788069990236143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7454247496317900716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcb078557a0474ca9960a4ad65b476, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleUpSize: 1.05
 --- !u!1 &7454247496706076783
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,6 +364,8 @@ GameObject:
   - component: {fileID: 7454247496837833068}
   - component: {fileID: 7454247496837833071}
   - component: {fileID: 7454247496837833070}
+  - component: {fileID: 389035058424852297}
+  - component: {fileID: 7407458027161400832}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -444,6 +474,32 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &389035058424852297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7454247496837833360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
+--- !u!114 &7407458027161400832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7454247496837833360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcb078557a0474ca9960a4ad65b476, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleUpSize: 1.05
 --- !u!1 &7454247496916430631
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,6 +512,8 @@ GameObject:
   - component: {fileID: 7454247496916430627}
   - component: {fileID: 7454247496916430626}
   - component: {fileID: 7454247496916430629}
+  - component: {fileID: 8991800729140783348}
+  - component: {fileID: 4299774644174710108}
   m_Layer: 5
   m_Name: SettingButton
   m_TagString: Untagged
@@ -564,6 +622,32 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8991800729140783348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7454247496916430631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
+--- !u!114 &4299774644174710108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7454247496916430631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcb078557a0474ca9960a4ad65b476, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleUpSize: 1.05
 --- !u!1 &7454247497138353213
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,6 +735,8 @@ GameObject:
   - component: {fileID: 7454247497188654646}
   - component: {fileID: 7454247497188654649}
   - component: {fileID: 7454247497188654648}
+  - component: {fileID: 5684907192905582232}
+  - component: {fileID: 3715421081402718689}
   m_Layer: 5
   m_Name: CreditButtnon
   m_TagString: Untagged
@@ -759,6 +845,32 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5684907192905582232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7454247497188654650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
+--- !u!114 &3715421081402718689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7454247497188654650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcb078557a0474ca9960a4ad65b476, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleUpSize: 1.05
 --- !u!1 &7454247497193066145
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,6 +958,8 @@ GameObject:
   - component: {fileID: 7454247497587782949}
   - component: {fileID: 7454247497587782948}
   - component: {fileID: 7454247497587782951}
+  - component: {fileID: 4436158886986849723}
+  - component: {fileID: 3714269148268584302}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -954,3 +1068,29 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4436158886986849723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7454247497587782953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
+--- !u!114 &3714269148268584302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7454247497587782953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcb078557a0474ca9960a4ad65b476, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleUpSize: 1.05
