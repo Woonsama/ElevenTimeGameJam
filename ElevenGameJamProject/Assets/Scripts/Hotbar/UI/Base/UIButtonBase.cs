@@ -10,7 +10,7 @@ namespace Hotbar.UI
     [RequireComponent(typeof(EventTrigger))]
     public class UIButtonBase : MonoBehaviour
     {
-        public float scaleUpSize = 1.05f;
+        private float scaleUpSize = 1.075f;
         private EventTrigger eventTrigger;
         private Button button;
         private float initialScale;
