@@ -4,12 +4,14 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using Cysharp.Threading.Tasks;
 
 namespace Hotbar.UI.View.Title
 {
     public class UITitleContentView : UIViewBase
     {
         public Image titleIcon;
+        public GameObject rightButtonGroup;
         public Button startButton;
         public Button rankingButton;
         public Button settingButton;
@@ -18,6 +20,8 @@ namespace Hotbar.UI.View.Title
 
         private float tick;
 
+        private bool animationInitEnded = false;
+
         private async void Awake()
         {
             await InitView();
@@ -25,13 +29,15 @@ namespace Hotbar.UI.View.Title
 
         private void Update()
         {
-            tick -= Time.deltaTime;
-
-            if (tick < 0)
+            if(animationInitEnded)
             {
-                tick = 3.0f;
-                titleIcon.transform.DOPunchScale(new Vector3(0.1f, 0.1f, 0.0f), 1.0f, 5);
+                tick -= Time.deltaTime;
 
+                if (tick < 0)
+                {
+                    tick = 3.0f;
+                    titleIcon.transform.DOPunchScale(new Vector3(0.1f, 0.1f, 0.0f), 1.0f, 5);
+                }
             }
         }
 
@@ -48,22 +54,33 @@ namespace Hotbar.UI.View.Title
 
         public override async Task InitView()
         {
-            startButton.onClick?.RemoveAllListeners();
-            startButton.onClick?.AddListener(OnClickStartButton);
+            AddButtonEvent();
 
-            rankingButton.onClick?.RemoveAllListeners();
-            rankingButton.onClick?.AddListener(OnClickRankingButton);
+            var tasks = new List<Task>();
+            tasks.Add(titleIcon.DOFade(0, 0).AsyncWaitForCompletion());
+            tasks.Add(startButton.image.DOFade(0, 0).AsyncWaitForCompletion());
+            tasks.Add(rankingButton.image.DOFade(0, 0).AsyncWaitForCompletion());
+            tasks.Add(settingButton.image.DOFade(0, 0).AsyncWaitForCompletion());
+            tasks.Add(creditButton.image.DOFade(0, 0).AsyncWaitForCompletion());
+            tasks.Add(exitButton.image.DOFade(0, 0).AsyncWaitForCompletion());
+            await Task.WhenAll(tasks);
+            tasks.Clear();
 
-            settingButton.onClick?.RemoveAllListeners();
-            settingButton.onClick?.AddListener(OnClickSettingButton);
+            tasks.Add(titleIcon.DOFade(1, 1.2f).AsyncWaitForCompletion());
+            tasks.Add(startButton.image.DOFade(1, 1.2f).AsyncWaitForCompletion());
+            tasks.Add(rankingButton.image.DOFade(1, 1.2f).AsyncWaitForCompletion());
+            tasks.Add(settingButton.image.DOFade(1, 1.2f).AsyncWaitForCompletion());
+            tasks.Add(creditButton.image.DOFade(1, 1.2f).AsyncWaitForCompletion());
+            tasks.Add(exitButton.image.DOFade(1, 1.2f).AsyncWaitForCompletion());
+            tasks.Add(titleIcon.transform.DOLocalMoveY(Screen.height * 0.26f, 1.2f).AsyncWaitForCompletion());
+            tasks.Add(exitButton.transform.DOLocalMoveX(-Screen.width + Screen.width * 0.52f, 1.2f).AsyncWaitForCompletion());
+            tasks.Add(rightButtonGroup.transform.DOLocalMoveX(Screen.width - Screen.width * 0.63f, 1.2f).AsyncWaitForCompletion());
+            await Task.WhenAll(tasks);
+            tasks.Clear();
 
-            creditButton.onClick?.RemoveAllListeners();
-            creditButton.onClick?.AddListener(OnClickCreditButton);
-
-            exitButton.onClick?.RemoveAllListeners();
-            exitButton.onClick?.AddListener(OnClickExitButton);
+            animationInitEnded = true;
         }
-    
+
         public override async Task UpdateView()
         {
     
@@ -88,6 +105,24 @@ namespace Hotbar.UI.View.Title
         private void OnClickExitButton() => Application.Quit();
 
         #endregion
+
+        private void AddButtonEvent()
+        {
+            startButton.onClick?.RemoveAllListeners();
+            startButton.onClick?.AddListener(OnClickStartButton);
+
+            rankingButton.onClick?.RemoveAllListeners();
+            rankingButton.onClick?.AddListener(OnClickRankingButton);
+
+            settingButton.onClick?.RemoveAllListeners();
+            settingButton.onClick?.AddListener(OnClickSettingButton);
+
+            creditButton.onClick?.RemoveAllListeners();
+            creditButton.onClick?.AddListener(OnClickCreditButton);
+
+            exitButton.onClick?.RemoveAllListeners();
+            exitButton.onClick?.AddListener(OnClickExitButton);
+        }
     }
 
 }
