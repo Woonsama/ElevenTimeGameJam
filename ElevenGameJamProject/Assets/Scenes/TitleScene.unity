@@ -3858,6 +3858,8 @@ GameObject:
   - component: {fileID: 842119526}
   - component: {fileID: 842119525}
   - component: {fileID: 842119524}
+  - component: {fileID: 842119528}
+  - component: {fileID: 842119527}
   m_Layer: 5
   m_Name: SkipButton
   m_TagString: Untagged
@@ -3966,6 +3968,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 842119522}
   m_CullTransparentMesh: 1
+--- !u!114 &842119527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842119522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcb078557a0474ca9960a4ad65b476, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleUpSize: 1.05
+--- !u!114 &842119528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842119522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
 --- !u!1 &849747207
 GameObject:
   m_ObjectHideFlags: 0
@@ -4712,6 +4740,8 @@ GameObject:
   - component: {fileID: 1304680795}
   - component: {fileID: 1304680794}
   - component: {fileID: 1304680793}
+  - component: {fileID: 1304680797}
+  - component: {fileID: 1304680796}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
@@ -4820,6 +4850,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1304680791}
   m_CullTransparentMesh: 1
+--- !u!114 &1304680796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304680791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfcb078557a0474ca9960a4ad65b476, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleUpSize: 1.05
+--- !u!114 &1304680797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304680791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
 --- !u!1 &1345656396
 GameObject:
   m_ObjectHideFlags: 0
