@@ -36,12 +36,16 @@ namespace Hotbar.UI.View
         private int resolutionY;
         private bool isFullScreen;
 
+        Muone2SoundManager soundManager;
 
         public override async Task InitView()
         {
             GetSettingData();
-            Time.timeScale = 0;
-            soundSlider.onValueChanged?.AddListener((value) => { soundVolume = value; });
+            Time.timeScale = 0;          
+            soundSlider.onValueChanged?.AddListener((value) => { 
+                soundVolume = value;
+                Muone2SoundManager.instance.SetVolume(soundVolume);
+            });
         }
 
         #region Event

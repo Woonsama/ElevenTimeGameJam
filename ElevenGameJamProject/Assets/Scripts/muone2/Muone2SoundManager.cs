@@ -17,6 +17,12 @@ public class Muone2SoundManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        float soundVolume = PlayerPrefs.GetFloat("Sound");
+        SetVolume(soundVolume);
+    }
+
     public GameObject soundBGM;
     public GameObject soundDie;
     public GameObject soundGetItem;
@@ -54,6 +60,16 @@ public class Muone2SoundManager : MonoBehaviour
         soundMouseClick.SetActive(false);
         soundMouseClick.SetActive(true);
     }
+
+    public void SetVolume(float volume)
+    {
+    soundBGM.GetComponent<AudioSource>().volume = volume;
+    soundDie.GetComponent<AudioSource>().volume = volume;
+    soundGetItem.GetComponent<AudioSource>().volume = volume; 
+    soundJump.GetComponent<AudioSource>().volume = volume; 
+    soundGoalHome.GetComponent<AudioSource>().volume = volume;
+    soundMouseClick.GetComponent<AudioSource>().volume = volume; 
+}
 
 
 }
